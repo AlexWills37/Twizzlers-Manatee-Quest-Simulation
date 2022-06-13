@@ -107,7 +107,7 @@ Material:
     - _FoamWaveDependency: 0.10205479
     - _FresnelPower: 1.7931035
     - _FresnelScale: 0.6571428
-    - _GerstnerIntensity: 1.6714286
+    - _GerstnerIntensity: 1
     - _HeightDisplacement: 3.2722514
     - _InvFade: 0.628783
     - _InvFadeDepthFade: 0.07197756

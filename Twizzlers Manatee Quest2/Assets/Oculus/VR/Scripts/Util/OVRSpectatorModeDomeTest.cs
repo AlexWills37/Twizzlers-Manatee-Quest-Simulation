@@ -1,3 +1,15 @@
+/************************************************************************************
+Copyright : Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
+
+Your use of this SDK or tool is subject to the Oculus SDK License Agreement, available at
+https://developer.oculus.com/licenses/oculussdk/
+
+Unless required by applicable law or agreed to in writing, the Utilities SDK distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+ANY KIND, either express or implied. See the License for the specific language governing
+permissions and limitations under the License.
+************************************************************************************/
+
 #if UNITY_ANDROID && !UNITY_EDITOR
 #define OVR_ANDROID_MRC
 #endif
@@ -14,6 +26,7 @@ public class OVRSpectatorModeDomeTest : MonoBehaviour {
 	OVRPlugin.Fovf defaultFov;
 	public Transform SpectatorAnchor;
 	public Transform Head;
+#if OVR_ANDROID_MRC
 	private OVRPlugin.Media.PlatformCameraMode camMode = OVRPlugin.Media.PlatformCameraMode.Disabled;
 	private bool readyToSwitch = false;
 	private Transform SpectatorCamera;
@@ -25,6 +38,7 @@ public class OVRSpectatorModeDomeTest : MonoBehaviour {
 	private const float distance_near = 0.5f;
 	private const float distance_far = 1.2f;
 	private const float elevationLimit = 30.0f;
+#endif
 
 	// Start is called before the first frame update
 	void Awake()
@@ -82,7 +96,9 @@ public class OVRSpectatorModeDomeTest : MonoBehaviour {
 		}
 
 		inited = true;
+#if OVR_ANDROID_MRC
 		readyToSwitch = true;
+#endif
 #endif
 	}
 
@@ -152,9 +168,7 @@ public class OVRSpectatorModeDomeTest : MonoBehaviour {
 
 	private void UpdateSpectatorCameraStatus()
 	{
-
 #if OVR_ANDROID_MRC
-
 		// Trigger to switch between 1st person and spectator mode during casting to phone
 		if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
 		{
@@ -162,12 +176,14 @@ public class OVRSpectatorModeDomeTest : MonoBehaviour {
 
 			if (camMode == OVRPlugin.Media.PlatformCameraMode.Disabled && readyToSwitch)
 			{
+				OVRPlugin.Media.SetMrcFrameImageFlipped(false);
 				OVRPlugin.Media.SetPlatformCameraMode(OVRPlugin.Media.PlatformCameraMode.Initialized);
 				StartCoroutine(TimerCoroutine());
 			}
 
 			if (camMode == OVRPlugin.Media.PlatformCameraMode.Initialized && readyToSwitch)
 			{
+				OVRPlugin.Media.SetMrcFrameImageFlipped(true);
 				OVRPlugin.Media.SetPlatformCameraMode(OVRPlugin.Media.PlatformCameraMode.Disabled);
 				StartCoroutine(TimerCoroutine());
 			}
@@ -200,7 +216,6 @@ public class OVRSpectatorModeDomeTest : MonoBehaviour {
 		Head.position = SpectatorAnchor.position;
 		Head.rotation = SpectatorAnchor.rotation;
 #endif
-
 	}
 
 	Vector3 SpectatorCameraDomePosition(Vector3 spectatorAnchorPosition, float d, float e, float p)
@@ -214,9 +229,13 @@ public class OVRSpectatorModeDomeTest : MonoBehaviour {
 
 	IEnumerator TimerCoroutine()
 	{
+#if OVR_ANDROID_MRC
 		readyToSwitch = false;
+#endif
 		yield return new WaitForSeconds(2);
+#if OVR_ANDROID_MRC
 		readyToSwitch = true;
+#endif
 	}
 
 	// Update is called once per frame
@@ -244,18 +263,19 @@ public class OVRSpectatorModeDomeTest : MonoBehaviour {
 			return;
 		}
 #endif
-		UpdateSpectatorCameraStatus();	
+		UpdateSpectatorCameraStatus();
 
 		UpdateDefaultExternalCamera();
 		OVRPlugin.OverrideExternalCameraFov(0, false, new OVRPlugin.Fovf());
 		OVRPlugin.OverrideExternalCameraStaticPose(0, false, OVRPlugin.Posef.identity);
-	
+
 #endif
 	}
 
 	void OnApplicationPause()
 	{
 #if OVR_ANDROID_MRC
+		OVRPlugin.Media.SetMrcFrameImageFlipped(true);
 		OVRPlugin.Media.SetPlatformCameraMode(OVRPlugin.Media.PlatformCameraMode.Disabled);
 #endif
 	}
@@ -263,6 +283,7 @@ public class OVRSpectatorModeDomeTest : MonoBehaviour {
 	void OnApplicationQuit()
 	{
 #if OVR_ANDROID_MRC
+		OVRPlugin.Media.SetMrcFrameImageFlipped(true);
 		OVRPlugin.Media.SetPlatformCameraMode(OVRPlugin.Media.PlatformCameraMode.Disabled);
 #endif
 	}

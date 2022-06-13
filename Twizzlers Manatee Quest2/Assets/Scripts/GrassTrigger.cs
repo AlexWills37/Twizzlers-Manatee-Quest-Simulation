@@ -7,7 +7,8 @@ using UnityEngine;
  * It triggers the chew particle system effect, bubbles, and an increase in the health bar.
  * 
  * @author Sami Cemek
- * Updated: 07/08/21
+ * @author Alex Wills
+ * Updated: 06/11/22
  */
 public class GrassTrigger : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class GrassTrigger : MonoBehaviour
     private bool justAte = false;
     [SerializeField] private int ateGrassNum;
     //[SerializeField] private Animator myAnimationController;
+
+    [Tooltip("How many health points eating this will recover")]
+    [SerializeField] private float healthValue = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +39,12 @@ public class GrassTrigger : MonoBehaviour
             grassObj.SetActive(false);                          //remove the grass object from the scene
             //myAnimationController.SetBool("playBubble", true);  //start animation
             bubbleObj.SetActive(true);
-            chewParticleEffect.SetActive(true);
-            StartCoroutine("WaitAndDisplay");
+            //chewParticleEffect.SetActive(true);
+            //StartCoroutine("WaitAndDisplay");
 
             if (justAte == false)
             {
-                PlayerScript.currentHealth += 5;
+                PlayerScript.currentHealth += healthValue;
                 PlayerScript.ateGrassNum += 1;
             }
 

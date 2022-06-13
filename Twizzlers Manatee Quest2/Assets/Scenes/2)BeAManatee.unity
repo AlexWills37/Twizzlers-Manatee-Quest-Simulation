@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.10117787, g: 0.2880348, b: 0.5371327, a: 1}
+  m_IndirectSpecularColor: {r: 0.1014239, g: 0.28848746, b: 0.53792876, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -865,7 +865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126583504}
   m_LocalRotation: {x: 0.6680397, y: -0.313184, z: -0.6111799, w: 0.28652737}
-  m_LocalPosition: {x: -0.25799948, y: -0.55100006, z: 0.16200106}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
   m_LocalScale: {x: 80, y: 80, z: 80}
   m_Children: []
   m_Father: {fileID: 3142607762073493835}
@@ -1555,7 +1555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224262822}
   m_LocalRotation: {x: 0.6680397, y: -0.313184, z: -0.6111799, w: 0.28652737}
-  m_LocalPosition: {x: 0.2760013, y: -0.5510001, z: 0.20999928}
+  m_LocalPosition: {x: 0, y: -0.3, z: -0.5}
   m_LocalScale: {x: 80, y: 80, z: 80}
   m_Children: []
   m_Father: {fileID: 3142890927208435461}
@@ -4842,8 +4842,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useRecommendedMSAALevel: 1
   _monoscopic: 0
-  enableAdaptiveResolution: 0
-  _colorGamut: 4
   minRenderScale: 0.7
   maxRenderScale: 1
   _headPoseRelativeOffsetRotation: {x: 0, y: 0, z: 0}
@@ -4881,6 +4879,7 @@ MonoBehaviour:
   virtualGreenScreenApplyDepthCulling: 0
   virtualGreenScreenDepthTolerance: 0.2
   mrcActivationMode: 0
+  isInsightPassthroughEnabled: 0
   _trackingOriginType: 0
   usePositionTracking: 1
   useRotationTracking: 1
@@ -9077,7 +9076,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967279
+    m_Bits: 0
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -9096,8 +9095,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228142657}
-  m_LocalRotation: {x: 0, y: 0.04233302, z: 0, w: 0.9991036}
-  m_LocalPosition: {x: -142.90974, y: 156.52, z: -183.76585}
+  m_LocalRotation: {x: 0.064099506, y: -0.9043455, z: -0.14510942, w: -0.3962243}
+  m_LocalPosition: {x: -144.48735, y: 156.0995, z: -178.60002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10327,7 +10326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reflectionMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   reflectSkybox: 1
   clearColor: {r: 1, g: 1, b: 1, a: 1}
   reflectionSampler: _ReflectionTex
@@ -10345,7 +10344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedMaterial: {fileID: 2100000, guid: a5f2339f242f6cc41a982ec55ea3c201, type: 2}
-  waterQuality: 2
+  waterQuality: 0
   edgeBlend: 1
 --- !u!114 &1348520090
 MonoBehaviour:
@@ -10554,7 +10553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1355595132
 GameObject:
   m_ObjectHideFlags: 0
@@ -15828,6 +15827,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5207755913374837609, guid: ac201f0e26ba9564e88bfde1c914cac4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5207755913374837622, guid: ac201f0e26ba9564e88bfde1c914cac4,
         type: 3}
       propertyPath: m_RootOrder
@@ -16558,7 +16562,7 @@ PrefabInstance:
     - target: {fileID: 23040993043489388, guid: 7cd627a1919ab7748980fbcec674e6a0,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cd627a1919ab7748980fbcec674e6a0, type: 3}
@@ -18457,8 +18461,8 @@ MonoBehaviour:
   m_text: 'Press X on your left joystick to swim up to the surface.
 
 
-    Press
-    Y on your left joystick to swim down to the sea floor.
+    Press Y
+    on your left joystick to swim down to the sea floor.
 
 '
   m_isRightToLeft: 0
@@ -22925,7 +22929,7 @@ MonoBehaviour:
   RotationRatchet: 45
   SnapRotation: 0
   RotateAroundGuardianCenter: 0
-  FixedSpeedSteps: 0
+  FixedSpeedSteps: 3
   HmdResetsY: 1
   HmdRotatesY: 1
   GravityModifier: 1
@@ -22947,8 +22951,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useRecommendedMSAALevel: 1
   _monoscopic: 0
-  enableAdaptiveResolution: 0
-  _colorGamut: 4
   minRenderScale: 0.7
   maxRenderScale: 1
   _headPoseRelativeOffsetRotation: {x: 0, y: 0, z: 0}
@@ -22986,6 +22988,7 @@ MonoBehaviour:
   virtualGreenScreenApplyDepthCulling: 0
   virtualGreenScreenDepthTolerance: 0.2
   mrcActivationMode: 0
+  isInsightPassthroughEnabled: 0
   _trackingOriginType: 0
   usePositionTracking: 1
   useRotationTracking: 1
@@ -23682,6 +23685,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 463470, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
+      propertyPath: CanOwnMicrophone
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
