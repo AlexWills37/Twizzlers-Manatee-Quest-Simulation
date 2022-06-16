@@ -16,17 +16,23 @@ public class HUDBehavior : MonoBehaviour
 {
     private Transform player;
 
-    private float currentAngle;
-
-    [Tooltip("How many degrees ")]
+    [Tooltip("How many degrees away from the center of the HUD before it rotates to match the player's rotation")]
     [SerializeField] private float angleWindow = 10f;
 
-    private float timeToRecenter = 0.3f;
+    [Tooltip("Time (in seconds) for the HUD to rotate to match the player's rotation")]
+    [SerializeField] private float timeToRecenter = 0.3f;
 
-    private bool isRotating;
+    [Tooltip("Curve to specify how the HUD will rotate to follow the player. Values should range from 0 to 1.")]
+    [SerializeField] private AnimationCurve rotationCurve = AnimationCurve.Linear(0, 0, 1, 1);
+
 
     private Vector3 startingAngles;
 
+    // We will only move the HUD if it is currently still
+    private bool stationary = true;
+
+
+    private float curveLength;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +40,8 @@ public class HUDBehavior : MonoBehaviour
         player = GameObject.Find("LeftEyeAnchor").transform;
 
         startingAngles = this.transform.rotation.eulerAngles;
-        currentAngle = this.transform.rotation.eulerAngles.y;
+
+        curveLength = rotationCurve.keys[rotationCurve.length - 1].time;
     }
 
     // Update is called once per frame
@@ -48,10 +55,109 @@ public class HUDBehavior : MonoBehaviour
         // Fix the position to the player
         this.transform.position = player.position;
 
+        // Only consider moving if the coroutine is not active
+        if (stationary)
+        {
+            // Determine if the player is looking away from the HUD and if we should rotate the HUD
+            float deltaY = CalculateDeltaY(this.transform.eulerAngles.y, player.transform.eulerAngles.y);
+            
+            // If the player is looking too far away, rotate to catch up
+            if(Mathf.Abs(deltaY) > angleWindow)
+            {
+                StartCoroutine(RotateHUD(deltaY));
+            }
+        }
 
+        //// Fix the y rotation to the player
+        //this.transform.rotation = Quaternion.Euler(startingAngles.x, player.rotation.eulerAngles.y, startingAngles.z);
+    }
 
-        // Fix the y rotation to the player
-        this.transform.rotation = Quaternion.Euler(startingAngles.x, player.rotation.eulerAngles.y, startingAngles.z);
+    /// <summary>
+    /// Calculate the shortest way to rotate from currentY to targetY.
+    /// This method takes into consideration the possibility of wrapping around and rotating past 0 = 360 degrees.
+    /// 
+    /// Note: There might be a more efficient mathematical way to do this method, but this approach makes sense to me (alex).
+    /// </summary>
+    /// <param name="currentY"> the starting Y rotation </param>
+    /// <param name="targetY"> the ending Y rotation </param>
+    /// <returns> shortest change in degrees of rotation to get from currentY to targetY </returns>
+    private float CalculateDeltaY(float currentY, float targetY)
+    {
+        float deltaY;
+
+        // If you take a circle representing the possible angles, and lay the circle into a line from 0 to 360,
+        // there are two points: currentY and targetY. We need to determine if it is shorter to wrap around and go
+        // through 0/360 degrees, or if it is shorter to not wrap around.
+        float shortestDistance = Mathf.Abs(targetY - currentY);
+
+        bool wrapAroundZero = false;
+        if(360 - shortestDistance < shortestDistance)
+        {
+            wrapAroundZero = true;
+            shortestDistance = 360 - shortestDistance;
+        }
+
+        // If we are not wrapping around 0, change in rotation is just (end - start)
+        if (!wrapAroundZero)
+        {
+            deltaY = targetY - currentY;
+        } else
+        {
+            // We are wrapping around 0
+
+            // We need to rotate counterclockwise / anticlockwise / in the negative direction if the target is greater than where we currently are
+            if(targetY > currentY)
+            {
+                deltaY = shortestDistance * -1;
+
+            // If the target is less than the current rotation, we will rotate clockwise / in the positive direction to wrap around and get to the target
+            } else
+            {
+                deltaY = shortestDistance;
+            }
+
+        }
+
+        return deltaY;
+    }
+
+    /// <summary>
+    /// Rotate the HUD by a number of degrees.
+    /// Rotation will follow the path specified by the rotation curve, over the course of the
+    /// specified rotation time. At the end of this coroutine, the HUD will be rotated deltaY degrees.
+    /// </summary>
+    /// <param name="deltaY"> Number of degrees to rotate the HUD </param>
+    /// <returns> IEnumerator for a coroutine </returns>
+    private IEnumerator RotateHUD(float deltaY)
+    {
+        // Tells the script that the Coroutine is happening
+        stationary = false;
+
+        float totalTime = 0f;
+        float startingRotation = this.transform.eulerAngles.y;
+        float currentY;
+
+        // Animate until the time has elapsed
+        while(totalTime < timeToRecenter)
+        {
+            totalTime += Time.deltaTime;
+
+            // Set the y rotation based on the time elapsed, location on the curve, deltaY, and starting position
+            currentY = startingRotation;
+            currentY += deltaY * rotationCurve.Evaluate(totalTime / timeToRecenter);
+
+            // Change the rotation
+            this.transform.eulerAngles = new Vector3(startingAngles.x,
+                                                    currentY,
+                                                    startingAngles.z);
+            yield return null;
+        }
+
+        // After the time has passed, snap rotation to the completed position and end the coroutine
+        this.transform.eulerAngles = new Vector3(startingAngles.x,
+                                                    startingRotation + deltaY,
+                                                    startingAngles.z);
+        stationary = true;
     }
 
 

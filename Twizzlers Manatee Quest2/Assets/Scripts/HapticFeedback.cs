@@ -23,6 +23,10 @@ public class HapticFeedback : MonoBehaviour
 {
     public static HapticFeedback singleton;
 
+    private bool rumbling = false;
+    private float timeElapsed = 0f;
+    private float rumblingTime = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +34,23 @@ public class HapticFeedback : MonoBehaviour
             Destroy(this);
         else
             singleton = this;
+    }
+
+    private void Update()
+    {
+        // Continous rumble specified from TriggerVibrationTime
+        if (rumbling)
+        {
+            TriggerVibration(40, 2, 255, OVRInput.Controller.LTouch);
+            TriggerVibration(40, 2, 255, OVRInput.Controller.RTouch);
+
+            // Stop rumbling after the specified time has passed
+            timeElapsed += Time.deltaTime;
+            if(timeElapsed > rumblingTime)
+            {
+                rumbling = false;
+            }
+        }
     }
 
     //Use this if you have an audio clip that is triggered with haptic feedback
@@ -70,7 +91,20 @@ public class HapticFeedback : MonoBehaviour
             OVRHaptics.RightChannel.Preempt(clip);
         }
     }
+
+    /// <summary>
+    /// Rumble both controllers for a given amount of time.
+    /// </summary>
+    /// <param name="duration"> Time (in seconds) to vibrate the controllers </param>
+    public void TriggerVibrationTime(float duration)
+    {
+        rumblingTime = duration;
+        timeElapsed = 0;
+        rumbling = true;
+    }
 }
+
+
 
 //ADD THIS PART TO ANOTHER SCRIPT
 //HapticFeedback.singleton.TriggerVibration(40, 2, 255, ovrGrabbable.grabbbedBy.GetController());

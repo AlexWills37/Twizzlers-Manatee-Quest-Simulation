@@ -15,13 +15,15 @@ using UnityEngine;
 /// </summary>
 /// 
 
-[RequireComponent(typeof(Rigidbody))]
+//[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 public class ManateeCharacterController : MonoBehaviour
 {
 
-    private new Rigidbody rigidbody;
+    //private new Rigidbody rigidbody;
     private new CapsuleCollider collider;
+
+    private Vector3 noY = new Vector3(1, 0, 1);
 
 
     //
@@ -58,7 +60,7 @@ public class ManateeCharacterController : MonoBehaviour
 
     private void Start()
     {
-        rigidbody = this.GetComponent<Rigidbody>();
+        //rigidbody = this.GetComponent<Rigidbody>();
         collider = this.GetComponent<CapsuleCollider>();
     }
 
@@ -70,7 +72,7 @@ public class ManateeCharacterController : MonoBehaviour
     //   motion:
     public CollisionFlags Move(Vector3 motion)
     {
-        rigidbody.AddForce(motion, ForceMode.Impulse);
+        this.transform.Translate(motion);
 
         return CollisionFlags.None;
     }
@@ -84,6 +86,11 @@ public class ManateeCharacterController : MonoBehaviour
     {
         Move(speed);
         return true;
+    }
+
+    private void Update()
+    {
+       
     }
 
     private void OnCollisionEnter(Collision collision)

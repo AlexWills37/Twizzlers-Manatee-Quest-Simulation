@@ -66,7 +66,7 @@ public class PlayerScript : MonoBehaviour
         // If we are colliding with air, increase our breath bar
         if (other.gameObject.CompareTag("Air"))
         {
-            currentBreath += 5;
+            currentBreath += 2;
             breathBar.SetBreath(currentBreath);
         }
     }
