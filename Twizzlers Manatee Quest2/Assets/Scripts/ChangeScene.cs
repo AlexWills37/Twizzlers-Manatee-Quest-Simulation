@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
  * It is attached to the apple object in the "Be a Manatee" Scene.
  * 
  * @author Sami Cemek
- * Updated: 5/20/21
+ * @author Alex Wills
+ * Updated: 6/20/22
  */
 
 public class ChangeScene : MonoBehaviour
@@ -20,5 +21,14 @@ public class ChangeScene : MonoBehaviour
             Debug.Log("Highlighted Area Collided with the player");
             SceneManager.LoadScene(2); //change the scene to index 1 scene
         }
+    }
+
+    /// <summary>
+    /// Load a scene using this script. Can be called from Unity Events, for example.
+    /// </summary>
+    /// <param name="sceneIndex"> the scene to transition to. </param>
+    public void LoadScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
     }
 }

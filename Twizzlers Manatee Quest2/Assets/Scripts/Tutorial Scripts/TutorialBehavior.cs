@@ -20,7 +20,7 @@ using UnityEngine.UIElements;
 /// | ... (any children past this point are okay) ...
 /// 
 /// @author Alex Wills
-/// Updated: 6/13/2022
+/// Updated: 6/20/2022
 /// </summary>
 public class TutorialBehavior : MonoBehaviour
 {
@@ -51,6 +51,16 @@ public class TutorialBehavior : MonoBehaviour
     [Tooltip("List of images to display for different tasks. Index = task number.")]
     [SerializeField] private GameObject[] tutorialImages;
 
+    [Tooltip("Canvas to display when the tutorial is complete")]
+    [SerializeField] private GameObject endTutorialScreen;
+
+    [Tooltip("Timer to move to next scene after the tutorial")]
+    [SerializeField] private TimerBehavior nextSceneTimer;
+
+    // Player script object to control breath and health
+    [Tooltip("Player Game Object with the PlayerScript component.")]
+    [SerializeField] private PlayerScript player;
+
     // Counter to keep track of which part of the tutorial you are on
     public static int TaskNumber
     {
@@ -58,10 +68,6 @@ public class TutorialBehavior : MonoBehaviour
         private set;
     }
 
-    private Image taskBackground;
-
-    [Tooltip("Canvas to display when the tutorial is complete")]
-    [SerializeField] private GameObject endTutorialScreen;
 
 
 
@@ -78,7 +84,7 @@ public class TutorialBehavior : MonoBehaviour
         Transform panel = this.transform.GetChild(0);
         taskText = panel.GetChild(0).GetComponent<TextMeshProUGUI>();
         checkmark = panel.GetChild(1).GetChild(0).gameObject;
-        taskBackground = panel.GetComponent<Image>();
+
 
         // For the first task, clear the checkmark.
         checkmark.SetActive(false);
@@ -118,7 +124,7 @@ public class TutorialBehavior : MonoBehaviour
         // End the tutorial if there are no more steps to take
         if(TaskNumber == tasks.Length)
         {
-            StartCoroutine(EndTutorial());
+            EndTutorial();
         } else
         {
             StartCoroutine(TransitionTask());
@@ -176,6 +182,15 @@ public class TutorialBehavior : MonoBehaviour
                 tutorialImages[TaskNumber].SetActive(true);
             }
         }
+
+ 
+        switch (TaskNumber)
+        {
+           // For the breathing task, lower the breath meter
+            case 2:
+                PlayerScript.currentBreath = 50;
+                break;
+        }
     }
 
     /// <summary>
@@ -188,12 +203,10 @@ public class TutorialBehavior : MonoBehaviour
         return tasks;
     }
 
-    public IEnumerator EndTutorial()
+    public void EndTutorial()
     {
         endTutorialScreen.SetActive(true);
-        // Wait before disabling the checkmark and progressing to the next task
-        yield return new WaitForSeconds(3f);
-
-        this.gameObject.SetActive(false);
+        // Have timer to count down to the next scene
+        nextSceneTimer.StartTimer();
     }
 }

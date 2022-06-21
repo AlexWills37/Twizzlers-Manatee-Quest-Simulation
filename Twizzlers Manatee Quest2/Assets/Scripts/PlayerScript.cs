@@ -10,7 +10,7 @@ using UnityEngine;
 ///
 /// @author Sami Cemek
 /// @author Alex Wills
-/// Updated: 06/12/2022
+/// Updated: 06/20/2022
 /// 
 /// </summary>
 
@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour
     public HealthBar healthBar;
     public HealthBar breathBar;
 
+    public bool breathDecreasing = true;
 
     //private float camXPos, camZPos;
     //public float camYPos;
@@ -34,9 +35,9 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		currentHealth = 3;
+		currentHealth = 10;
 		healthBar.SetMaxHealth(maxHealth);
-        healthBar.SetHealth(3);
+        healthBar.SetHealth(currentHealth);
         ateGrassNum = 0;
 
         currentBreath = maxBreath;
@@ -48,16 +49,16 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         //currentHealth -= 2 * Time.deltaTime;
-        currentBreath -= 1 * Time.deltaTime;
+        if (breathDecreasing)
+        {
+            currentBreath -= 1 * Time.deltaTime;
+        }
 
         healthBar.SetHealth(currentHealth);
         breathBar.SetBreath(currentBreath);
         
-        
-
-        //if (camYPos > )
 
     }
 
@@ -66,7 +67,7 @@ public class PlayerScript : MonoBehaviour
         // If we are colliding with air, increase our breath bar
         if (other.gameObject.CompareTag("Air"))
         {
-            currentBreath += 2;
+            currentBreath = Mathf.Clamp(currentBreath + 2, 0, maxBreath);
             breathBar.SetBreath(currentBreath);
         }
     }

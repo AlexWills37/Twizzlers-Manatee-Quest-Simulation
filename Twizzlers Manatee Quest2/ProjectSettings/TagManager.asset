@@ -9,6 +9,7 @@ TagManager:
   - Manatee
   - Boat
   - Air
+  - Food
   layers:
   - Default
   - TransparentFX

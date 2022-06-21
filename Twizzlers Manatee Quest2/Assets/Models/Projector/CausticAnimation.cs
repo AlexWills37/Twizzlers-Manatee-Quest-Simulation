@@ -21,6 +21,11 @@ public class CausticAnimation : MonoBehaviour
 
     private float timeDelay;
 
+    [SerializeField] private Light lightSource;
+
+    [Tooltip("True if this script should use the Projector component. False for the Light component.")]
+    [SerializeField] private bool usingProjector;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,8 @@ public class CausticAnimation : MonoBehaviour
 
         timeDelay = 1.0f / FPS;
         StartCoroutine(ChangeCaustics());
+
+        //lightSource = GetComponent<Light>();
     }
 
     // Deprecated
@@ -47,7 +54,13 @@ public class CausticAnimation : MonoBehaviour
         {
             // Switch to the next texture
             currentCaustic = (currentCaustic + 1) % causticsTextures.Length;
-            causticsMat.SetTexture("_ShadowTex", causticsTextures[currentCaustic]);
+            if (usingProjector)
+            {
+                causticsMat.SetTexture("_ShadowTex", causticsTextures[currentCaustic]);
+            } else
+            {
+                this.lightSource.cookie = causticsTextures[currentCaustic];
+            }
 
             // Wait for the calculated time between frames
             yield return new WaitForSeconds(timeDelay);
