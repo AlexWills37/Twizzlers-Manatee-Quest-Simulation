@@ -9,24 +9,30 @@ EditorBuildSettings:
     path: Assets/Scenes/1)TheFirstBoatTransaction.unity
     guid: dee2adc15db9f6548a8e0d77bf057010
   - enabled: 0
-    path: Assets/Scenes/1)Training.unity
-    guid: fb34bff9767faa74f9825039bacaac29
-  - enabled: 0
     path: Assets/Scenes/2)BeAManatee.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/3)LaterScene.unity
-    guid: 8d18d259f4643ce4f91bb2c9c265e371
   - enabled: 0
     path: Assets/Scenes/4)SeeAManatee.unity
     guid: ca055b60bd0e4554dbb40c9aaff5add9
   - enabled: 1
-    path: Assets/Scenes/Version2/UnderwaterTutorial.unity
+    path: Assets/Scenes/Version2/0 - Intro on Boat.unity
+    guid: fb34bff9767faa74f9825039bacaac29
+  - enabled: 1
+    path: Assets/Scenes/Version2/1 - UnderwaterTutorial.unity
     guid: c3a6d7bb25d68834b87add7fec303aa5
   - enabled: 1
-    path: Assets/Scenes/Version2/SocialLife.unity
+    path: Assets/Scenes/Version2/2 -SocialLife.unity
     guid: 3ef0b6b7a79a6f64da70bec2dbd0bff9
   - enabled: 1
+    path: Assets/Scenes/Version2/3 - Transition.unity
+    guid: 8d18d259f4643ce4f91bb2c9c265e371
+  - enabled: 1
+    path: Assets/Scenes/Version2/4 - BoatScene.unity
+    guid: 16616cdb209e72a4c8c074f30a2c1ad9
+  - enabled: 1
+    path: Assets/Scenes/Version2/5 - End Scene.unity
+    guid: 62a56a5a0713591478c26bb77c1040e9
+  - enabled: 0
     path: Assets/Scenes/Version2/Testing.unity
     guid: 14139b179e7c96b4b914a6e01f47fa3f
   m_configObjects:

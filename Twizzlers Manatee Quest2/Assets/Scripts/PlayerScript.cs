@@ -51,13 +51,31 @@ public class PlayerScript : MonoBehaviour
     {
 
         //currentHealth -= 2 * Time.deltaTime;
-        if (breathDecreasing)
-        {
-            currentBreath -= 1 * Time.deltaTime;
-        }
 
-        healthBar.SetHealth(currentHealth);
-        breathBar.SetBreath(currentBreath);
+        if(healthBar != null && breathBar != null)
+        {
+            // Lower breath over time
+            if (breathDecreasing && currentBreath > 0)
+            {
+                currentBreath -= 1 * Time.deltaTime;
+
+                // When breath is low, decrease health
+            } else if (currentBreath <= 0)
+            {
+                Mathf.Max(0, currentHealth -= 1 * Time.deltaTime);
+            }
+
+            // Health/points are modified externally with other scripts, so it is important
+            // To ensure that health is not above the max
+            if(currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth;
+            }
+
+            healthBar.SetHealth(currentHealth);
+            breathBar.SetBreath(currentBreath);
+
+        }
         
 
     }
@@ -67,7 +85,7 @@ public class PlayerScript : MonoBehaviour
         // If we are colliding with air, increase our breath bar
         if (other.gameObject.CompareTag("Air"))
         {
-            currentBreath = Mathf.Clamp(currentBreath + 2, 0, maxBreath);
+            currentBreath = Mathf.Clamp(currentBreath + 12 * Time.deltaTime, 0, maxBreath);
             breathBar.SetBreath(currentBreath);
         }
     }
