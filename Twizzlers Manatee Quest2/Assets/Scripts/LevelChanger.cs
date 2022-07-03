@@ -45,7 +45,7 @@ public class LevelChanger : MonoBehaviour
         {
 
             //countdownText.text = ("Out of time!");
-            FadeToLevel(1);
+            FadeToLevel(4);
             DisableCanvas();
             OnFadeComplete();
         }

@@ -61,6 +61,11 @@ public class TutorialBehavior : MonoBehaviour
     [Tooltip("Player Game Object with the PlayerScript component.")]
     [SerializeField] private PlayerScript player;
 
+    private NewVerticalMovement verticalControls;
+
+    private Rigidbody playerRb;
+    private bool verticalMovementEnabled = false;
+
     // Counter to keep track of which part of the tutorial you are on
     public static int TaskNumber
     {
@@ -85,6 +90,11 @@ public class TutorialBehavior : MonoBehaviour
         taskText = panel.GetChild(0).GetComponent<TextMeshProUGUI>();
         checkmark = panel.GetChild(1).GetChild(0).gameObject;
 
+        verticalControls = player.gameObject.GetComponent<NewVerticalMovement>();
+        playerRb = player.gameObject.GetComponent<Rigidbody>();
+
+        // Disable vertical movement until the player gets to that part of the tutorial
+        verticalControls.enabled = false;
 
         // For the first task, clear the checkmark.
         checkmark.SetActive(false);
@@ -99,6 +109,16 @@ public class TutorialBehavior : MonoBehaviour
 
         endTutorialScreen.SetActive(false);
 
+    }
+
+    private void Update()
+    {
+        if (!verticalMovementEnabled)
+        {
+            playerRb.velocity = new Vector3(playerRb.velocity.x,
+                                                0f,
+                                                playerRb.velocity.z);
+        }
     }
 
 
@@ -189,6 +209,8 @@ public class TutorialBehavior : MonoBehaviour
            // For the breathing task, lower the breath meter
             case 2:
                 PlayerScript.currentBreath = 50;
+                verticalControls.enabled = true;
+                verticalMovementEnabled = true;
                 break;
         }
     }

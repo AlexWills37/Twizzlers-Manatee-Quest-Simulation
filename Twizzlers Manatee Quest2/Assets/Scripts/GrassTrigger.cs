@@ -28,7 +28,7 @@ public class GrassTrigger : MonoBehaviour
         //ateGrassNum = 0;
         grassObj.SetActive(true);
         bubbleObj.SetActive(false);
-        chewParticleEffect.SetActive(false);
+        //chewParticleEffect.SetActive(false);
         //myAnimationController.SetBool("playBubble", false);
     }
 
@@ -46,6 +46,7 @@ public class GrassTrigger : MonoBehaviour
             {
                 PlayerScript.currentHealth += healthValue;
                 PlayerScript.ateGrassNum += 1;
+                HapticFeedback.singleton.TriggerVibrationTime(0.5f);
             }
 
             if (PlayerScript.ateGrassNum == 2)

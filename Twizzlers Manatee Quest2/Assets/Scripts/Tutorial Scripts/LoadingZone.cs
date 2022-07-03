@@ -16,7 +16,7 @@ public class LoadingZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && TutorialBehavior.TaskNumber == 3)
         {
             zoneEntered.Invoke();
         }

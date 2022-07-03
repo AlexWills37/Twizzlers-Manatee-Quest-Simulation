@@ -40,8 +40,8 @@ public class NewVerticalMovement : MonoBehaviour
     private void FixedUpdate()
     {
         OVRInput.FixedUpdate();
-        movingUp = OVRInput.Get(OVRInput.Button.Four);
-        movingDown = OVRInput.Get(OVRInput.Button.Three);
+        movingUp = OVRInput.Get(OVRInput.RawButton.Y);
+        movingDown = OVRInput.Get(OVRInput.RawButton.X);
 
         float verticalVelocity = 0;
 

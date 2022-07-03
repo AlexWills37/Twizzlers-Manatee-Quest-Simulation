@@ -10,6 +10,8 @@ TagManager:
   - Boat
   - Air
   - Food
+  - RoomLight
+  - Fire
   layers:
   - Default
   - TransparentFX
