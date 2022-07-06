@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Version2/5 - End Scene.unity
+- path: Assets/Scenes/Version2/2 - SocialLife.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

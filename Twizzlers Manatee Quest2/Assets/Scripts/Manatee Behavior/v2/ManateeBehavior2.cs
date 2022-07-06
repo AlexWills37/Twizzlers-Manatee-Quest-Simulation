@@ -104,7 +104,13 @@ public class ManateeBehavior2 : MonoBehaviour
 
     public void InteractWithManatee()
     {
-        animator.SetBool("isRolling", true);
+        // Do not start the animation if the animation is already occuring
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Rolling"))
+        {
+            animator.SetBool("isRolling", true);
+        }
+
+        // Do show particles and increase player health regardless
         StartCoroutine(HappyParticleCoroutine());
         PlayerScript.currentHealth += 2;
     }

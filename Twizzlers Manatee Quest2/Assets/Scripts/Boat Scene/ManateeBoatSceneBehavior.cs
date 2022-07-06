@@ -31,6 +31,9 @@ public class ManateeBoatSceneBehavior : MonoBehaviour
     [Tooltip("Material being used by the manatee mesh.")]
     [SerializeField] private Material manateeMaterial;
 
+    [Tooltip("Animator for the manatee mesh")]
+    [SerializeField] private Animator manateeAnimator;
+
     // Start is called before the first frame update
     void Start()
     {

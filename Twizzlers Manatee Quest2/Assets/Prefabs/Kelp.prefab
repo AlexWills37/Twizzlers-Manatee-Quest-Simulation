@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc5b5fbca3de224ab26c1c9b4b29e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grassObj: {fileID: 3090962942992686731}
+  grassObj: {fileID: 8754529505953154294}
   bubbleObj: {fileID: 7386586744288463306}
   chewParticleEffect: {fileID: 0}
   ateGrassNum: 0
@@ -944,12 +944,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186b2b3fa80719040bbc5b3998baae6b, type: 3}
---- !u!1 &3090962942992686731 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5355119436218534916, guid: 186b2b3fa80719040bbc5b3998baae6b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6968329396887294607}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &101164198454248500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7048998628798191291, guid: 186b2b3fa80719040bbc5b3998baae6b,
@@ -1116,6 +1110,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c73eed5ad847a3d4aa4b55a78a7171e6, type: 3}
+--- !u!1 &8754529505953154294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c73eed5ad847a3d4aa4b55a78a7171e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8484570463522961831}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8229631913035554380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c73eed5ad847a3d4aa4b55a78a7171e6,

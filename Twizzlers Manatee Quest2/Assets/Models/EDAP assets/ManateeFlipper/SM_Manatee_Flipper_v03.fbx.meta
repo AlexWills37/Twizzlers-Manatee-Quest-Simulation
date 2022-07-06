@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: adc2c9a8d5db43741bde8f4bc2ec4675
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: 8240461924106291939
+    second: Camera.001|Camera.001|Manatee_Idle
+  - first:
+      74: -476122160844629995
+    second: Camera.001|Cube.002|Manatee_Idle
+  - first:
+      74: -3275240032799287887
+    second: Camera.001|Cube.006|Manatee_Idle
+  - first:
+      74: 4445967783673523447
+    second: Camera.001|Cube.007|Manatee_Idle
+  - first:
+      74: 7942346464057521100
+    second: Camera.001|Cube.009|Manatee_Idle
+  - first:
+      74: 1534785541388630126
+    second: Camera.001|Cube.010|Manatee_Idle
+  - first:
+      74: 3561341280367924039
+    second: Camera.001|Empty|Manatee_Idle
+  - first:
+      74: -7327659576214822810
+    second: Camera.001|Light.001|Manatee_Idle
+  - first:
+      74: 9151090994163283570
+    second: Camera.001|Reference|Manatee_Idle
+  - first:
+      74: 4664594538535845964
+    second: Camera.001|SK_Mannequin_Female|Manatee_Idle
+  - first:
+      74: -3497422468080837456
+    second: Reference|Camera.001|Manatee_Idle
+  - first:
+      74: 2831512419231503302
+    second: Reference|Cube.002|Manatee_Idle
+  - first:
+      74: -5984084118703101957
+    second: Reference|Cube.006|Manatee_Idle
+  - first:
+      74: 9207929956100693017
+    second: Reference|Cube.007|Manatee_Idle
+  - first:
+      74: -3325284290555368849
+    second: Reference|Cube.009|Manatee_Idle
+  - first:
+      74: -2933510869757215900
+    second: Reference|Cube.010|Manatee_Idle
+  - first:
+      74: -4425716204075654126
+    second: Reference|Empty|Manatee_Idle
+  - first:
+      74: 2197145032466484481
+    second: Reference|Light.001|Manatee_Idle
+  - first:
+      74: -8944437469261833070
+    second: Reference|Reference|Manatee_Idle
+  - first:
+      74: -7280834949377377693
+    second: Reference|SK_Mannequin_Female|Manatee_Idle
+  - first:
+      74: 633801492508536746
+    second: Light.001|Camera.001|Manatee_Idle
+  - first:
+      74: -1155722903263050784
+    second: Light.001|Cube.002|Manatee_Idle
+  - first:
+      74: -6015064401374572446
+    second: Light.001|Cube.006|Manatee_Idle
+  - first:
+      74: -3100863894235680960
+    second: Light.001|Cube.007|Manatee_Idle
+  - first:
+      74: 5210928303800167321
+    second: Light.001|Cube.009|Manatee_Idle
+  - first:
+      74: 5277764959357450925
+    second: Light.001|Cube.010|Manatee_Idle
+  - first:
+      74: 4314828428980643684
+    second: Light.001|Empty|Manatee_Idle
+  - first:
+      74: 5668822548085030753
+    second: Light.001|Light.001|Manatee_Idle
+  - first:
+      74: -4411656165689804658
+    second: Light.001|Reference|Manatee_Idle
+  - first:
+      74: -1040257040306138136
+    second: Light.001|SK_Mannequin_Female|Manatee_Idle
+  - first:
+      74: -403958125029516
+    second: Cube.006|Camera.001|Manatee_Idle
+  - first:
+      74: 3949303612782666352
+    second: Cube.006|Cube.002|Manatee_Idle
+  - first:
+      74: -4008923105938924715
+    second: Cube.006|Cube.006|Manatee_Idle
+  - first:
+      74: 247961554693084277
+    second: Cube.006|Cube.007|Manatee_Idle
+  - first:
+      74: 7875779604956943637
+    second: Cube.006|Cube.009|Manatee_Idle
+  - first:
+      74: -174270594474366999
+    second: Cube.006|Cube.010|Manatee_Idle
+  - first:
+      74: 5017242331505402277
+    second: Cube.006|Empty|Manatee_Idle
+  - first:
+      74: 7619118193807908219
+    second: Cube.006|Light.001|Manatee_Idle
+  - first:
+      74: 8811361280767295652
+    second: Cube.006|Reference|Manatee_Idle
+  - first:
+      74: -5009305152612956936
+    second: Cube.006|SK_Mannequin_Female|Manatee_Idle
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
