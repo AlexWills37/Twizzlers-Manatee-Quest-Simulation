@@ -21,6 +21,7 @@ using UnityEngine;
 
 public class HapticFeedback : MonoBehaviour
 {
+    // Static instance allows for haptic feedback to be activated from any context
     public static HapticFeedback singleton;
 
     private bool rumbling = false;

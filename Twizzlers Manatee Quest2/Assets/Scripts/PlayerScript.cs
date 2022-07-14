@@ -17,16 +17,28 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    [Tooltip("Maximum health for the player")]
 	public float maxHealth = 100;
+
+    [Tooltip("Player's current health")]
     public static float currentHealth;
+
+    [Tooltip("How much food the player has eaten")]
     public static int ateGrassNum;
 
+    [Tooltip("Maximum breath for the player")]
     public float maxBreath = 180;
+
+    [Tooltip("The player's current breath level")]
     public static float currentBreath;
 
+    [Tooltip("Bar to display the player's health")]
     public HealthBar healthBar;
+
+    [Tooltip("Bar to display the player's breath")]
     public HealthBar breathBar;
 
+    [Tooltip("Whether the breath meter should decrease over time")]
     public bool breathDecreasing = true;
 
     //private float camXPos, camZPos;
@@ -35,6 +47,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Set initial values (10 health, max breath)
 		currentHealth = 10;
 		healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);

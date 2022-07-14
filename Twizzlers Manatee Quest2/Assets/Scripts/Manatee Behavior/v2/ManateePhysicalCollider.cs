@@ -20,10 +20,6 @@ public class ManateePhysicalCollider : MonoBehaviour
     [Tooltip("Collider trigger indicating the player's personal space to not invade.")]
     [SerializeField] private Collider playersPersonalSpace;
 
-    private void Start()
-    {
-        
-    }
 
     /// <summary>
     /// When the manatee enters the player's personal space, let the Manatee script know.

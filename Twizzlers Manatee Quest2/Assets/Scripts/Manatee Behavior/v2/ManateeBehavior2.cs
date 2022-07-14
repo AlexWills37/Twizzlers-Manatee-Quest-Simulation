@@ -27,42 +27,44 @@ using UnityEngine;
 public class ManateeBehavior2 : MonoBehaviour
 {
     [Tooltip("How quickly the manatee should move around.")]
-    [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] protected float movementSpeed = 5f;
 
     [Tooltip("Particle system to emit particles when the manatee is booped by the player.")]
     [SerializeField] private ParticleSystem happyParticles;
-
-    private Animator animator;
-
-    private bool inPlayersSpace = false;
-
-    private bool followingPlayer = false;
-
-    private bool atSurface = false;
-
-    private bool coroutineActive = false;
-    private Coroutine coroutine;
-
-    private Rigidbody manateeRb;
-
-    private GameObject player;
-
-    private ParticleSystem.EmissionModule happyParticleSettings;
 
     [Tooltip("How many seconds the manatee will take before going up to breathe air.")]
     [Range(5f, 300f)]
     [SerializeField] private float breathTime = 30f;
 
-    private float interactionCooldownMax = 3f;
-    private float currentCooldownTimer = 0;
-    private bool cooldownActive = false;
+    private Animator animator;
 
+    // This is how the manatee knows when to stop moving forward
+    private bool inPlayersSpace = false;
+
+    // This is how the manatee knows when to move towards the player
+    private bool followingPlayer = false;
+
+    // This is how the manatee knows if it is at the surface
+    private bool atSurface = false;
+
+    // This is how the manatee knows if the SwimForward coroutine is active
+    private bool isSwimming = false;
+
+    // This is how the manatee knows if the RotateSlowly coroutine is active
+    protected bool isRotating = false;
+    private float rotationSpeed = 5f;
+
+    protected Rigidbody manateeRb;
+
+    private GameObject player;
+
+    private ParticleSystem.EmissionModule happyParticleSettings;
 
     // How long the manatee has been underwater
     private float currentTimeWithoutBreath = 0f;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         // Get specific components
         manateeRb = this.GetComponent<Rigidbody>();
@@ -73,11 +75,12 @@ public class ManateeBehavior2 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    virtual protected void Update()
     {
         currentTimeWithoutBreath += Time.deltaTime;
 
-        if (!coroutineActive)
+        // Swim at set intervals
+        if (!isSwimming)
         {
             // Go up to breathe if enough time has passed. This takes priority over other actions.
             if(currentTimeWithoutBreath >= breathTime)
@@ -93,15 +96,31 @@ public class ManateeBehavior2 : MonoBehaviour
                 animator.SetBool("isSwimming", true);
                 this.transform.LookAt((player.transform.position - new Vector3(0, -1, 0)), Vector3.up);
                 this.transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime, Space.Self);
-            } else
+
+            // If not moving towards the player and not in their space, swim around slowly
+            } else if (!inPlayersSpace)
             {
-                animator.SetBool("isSwimming", false);
+                animator.SetBool("isSwimming", true);
+
+               
+                StartCoroutine(SwimForward());
             }
 
+            // If the manatee is in the player's space and not out of breath, it will stay still
+        }
+
+        // Rotate at set intervals
+        if (!isRotating)
+        {
+            StartCoroutine(RotateSlowly());
 
         }
     }
 
+    /// <summary>
+    /// Increase the player's health, play a happy animation, and display particles for the manatee to respond
+    /// to interaction.
+    /// </summary>
     public void InteractWithManatee()
     {
         // Do not start the animation if the animation is already occuring
@@ -115,6 +134,10 @@ public class ManateeBehavior2 : MonoBehaviour
         PlayerScript.currentHealth += 2;
     }
 
+    /// <summary>
+    /// Release some particles for a second
+    /// </summary>
+    /// <returns> Coroutine </returns>
     private IEnumerator HappyParticleCoroutine()
     {
         happyParticleSettings.rateOverTime = 15;
@@ -123,12 +146,69 @@ public class ManateeBehavior2 : MonoBehaviour
     }
 
     /// <summary>
+    /// Slowly rotate the manatee in a new direction
+    /// </summary>
+    /// <returns> Coroutine </returns>
+    protected IEnumerator RotateSlowly()
+    {
+        isRotating = true;
+
+        // Choose the direction to rotate
+        float totalRotation = Random.Range(-70f, 70f);
+        float elapsedRotation = 0f; // This is how much we have rotated so far
+        int negativeMultiplier = 1;
+        if(totalRotation < 0)
+        {
+            negativeMultiplier = -1;
+        }
+
+        // Rotate over multiple frames
+        while(elapsedRotation < Mathf.Abs(totalRotation))
+        {
+            this.transform.Rotate(Vector3.up, rotationSpeed * negativeMultiplier * Time.deltaTime, Space.World);
+            elapsedRotation += rotationSpeed * Time.deltaTime;
+
+            // Update velocity to match new rotation
+            manateeRb.velocity = manateeRb.velocity.magnitude * this.transform.forward;
+
+            yield return null;
+        }
+
+        // Wait a random amount of time before rotating again
+        yield return new WaitForSeconds(Random.Range(1, 5));
+
+        isRotating = false;
+    }
+
+    /// <summary>
+    /// Coroutine to swim forward for a bit.
+    /// </summary>
+    /// <returns> Coroutine </returns>
+    private IEnumerator SwimForward()
+    {
+        isSwimming = true;
+
+        // Set velocity forward for a bit of time
+        manateeRb.velocity = this.transform.forward * 1f;
+
+        yield return new WaitForSeconds(Random.Range(1, 5));
+
+        // Come to a slow stop by adding drag for a bit of time
+        manateeRb.drag = 0.3f;
+        yield return new WaitForSeconds(Random.Range(1, 5));
+
+        // Return to the default state
+        manateeRb.drag = 0;
+        isSwimming = false;
+    }
+
+    /// <summary>
     /// Moves the manatee to the surface, waits a little bit and goes back down.
     /// </summary>
     /// <returns> IEnumerator representing Coroutine to surface and breathe. </returns>
     private IEnumerator SurfaceAndBreathe()
     {
-        coroutineActive = true;
+        isSwimming = true;
 
         // Record the original Y so that we can float back down to this point
         float originalY = this.transform.position.y;
@@ -155,14 +235,11 @@ public class ManateeBehavior2 : MonoBehaviour
 
         // End coroutine and reset the manatee's breath timer
         currentTimeWithoutBreath = 0f;
-        coroutineActive = false;
+        isSwimming = false;
     }
 
 
-    private void MoveTowardPlayer()
-    {
-
-    }
+    // Methods to set different status-representing booleans. Call these methods from specific collider interactions.
 
     /// <summary>
     /// Set this manatee's status for following the player.

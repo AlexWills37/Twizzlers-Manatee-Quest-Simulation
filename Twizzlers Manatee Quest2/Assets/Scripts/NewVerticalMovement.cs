@@ -59,7 +59,7 @@ public class NewVerticalMovement : MonoBehaviour
         }
 
         rigidbody.velocity = new Vector3(rigidbody.velocity.x,
-                                          verticalVelocity * verticalSpeed,
-                                          rigidbody.velocity.z);
+                                        verticalVelocity * verticalSpeed,
+                                      rigidbody.velocity.z);
     }
 }

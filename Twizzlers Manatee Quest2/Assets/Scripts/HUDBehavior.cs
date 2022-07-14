@@ -9,6 +9,16 @@ using UnityEngine;
 /// The HUD only moves when the player rotates past a certain point.
 /// This follows the player's gaze, instead of sticking to the player's gaze.
 /// 
+/// HOW TO USE:
+/// Attach this script to a game object, and make sure that this game object's pivot point is on the player (the script will match their positions, so it doesn't
+/// have to be exact).
+/// To set the HUD up, make sure that this game object has the same rotation (in world space) as the player (in world space).
+/// Then attach the HUD objects to the same game object (as children), and set them up (distance, rotation, position) how you want them to be relative to the player.
+/// 
+/// TECHNICAL EXPLANATION:
+/// This script will cause the attached game object's Y rotation to match the player's Y rotation.
+/// By having this game object as a pivot point, and attaching HUD game objects at a distance as children, the HUD will seem to move around the player.
+/// 
 /// @author Alex Wills
 /// Updated 6/11/2022
 /// </summary>
@@ -25,30 +35,23 @@ public class HUDBehavior : MonoBehaviour
     [Tooltip("Curve to specify how the HUD will rotate to follow the player. Values should range from 0 to 1.")]
     [SerializeField] private AnimationCurve rotationCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
-
+    // Remember the starting angles to keep the X and Z angles consistent
     private Vector3 startingAngles;
 
     // We will only move the HUD if it is currently still
     private bool stationary = true;
 
 
-    private float curveLength;
-
     // Start is called before the first frame update
     void Start()
     {
+        // Get the left eye anchor to detect player rotation
         player = GameObject.Find("LeftEyeAnchor").transform;
 
         startingAngles = this.transform.rotation.eulerAngles;
 
-        curveLength = rotationCurve.keys[rotationCurve.length - 1].time;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void LateUpdate()
     {
@@ -74,9 +77,9 @@ public class HUDBehavior : MonoBehaviour
 
     /// <summary>
     /// Calculate the shortest way to rotate from currentY to targetY.
-    /// This method takes into consideration the possibility of wrapping around and rotating past 0 = 360 degrees.
+    /// This method takes into consideration the possibility of wrapping around and rotating past 0 / 360 degrees.
     /// 
-    /// Note: There might be a more efficient mathematical way to do this method, but this approach makes sense to me (alex).
+    /// Note: There might be a more efficient math-y way to do this method, but this approach makes sense to me (alex).
     /// </summary>
     /// <param name="currentY"> the starting Y rotation </param>
     /// <param name="targetY"> the ending Y rotation </param>
