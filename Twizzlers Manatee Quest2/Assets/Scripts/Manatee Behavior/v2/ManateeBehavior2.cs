@@ -63,15 +63,26 @@ public class ManateeBehavior2 : MonoBehaviour
     // How long the manatee has been underwater
     private float currentTimeWithoutBreath = 0f;
 
+    private AudioSource manateeSound;
+
     // Start is called before the first frame update
     protected void Start()
     {
         // Get specific components
         manateeRb = this.GetComponent<Rigidbody>();
+        
+        if(manateeRb == null)
+        {
+            manateeRb = this.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
+        }
+
         animator = this.GetComponentInChildren<Animator>();
+        manateeSound = this.GetComponent<AudioSource>();
         player = GameObject.Find("NewPlayerController");
+
         happyParticleSettings = happyParticles.emission;
         happyParticleSettings.rateOverTime = 0; // Stop the manatee from emitting particles
+
     }
 
     // Update is called once per frame
@@ -132,6 +143,14 @@ public class ManateeBehavior2 : MonoBehaviour
         // Do show particles and increase player health regardless
         StartCoroutine(HappyParticleCoroutine());
         PlayerScript.currentHealth += 2;
+        PlayerScript.interactedWithManatee = true;  // This line lets the PlayerScript know about the interaction, which will let the TaskList know about the interaction
+
+        // Give haptic and audio feedback
+        HapticFeedback.singleton.TriggerVibrationTime(0.05f);
+        if (!manateeSound.isPlaying)    // Do not replay audio if it is already playing
+        {
+            manateeSound.Play();
+        }
     }
 
     /// <summary>

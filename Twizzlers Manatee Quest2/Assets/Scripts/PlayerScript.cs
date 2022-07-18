@@ -10,7 +10,7 @@ using UnityEngine;
 ///
 /// @author Sami Cemek
 /// @author Alex Wills
-/// Updated: 06/20/2022
+/// Updated: 07/17/2022
 /// 
 /// </summary>
 
@@ -25,6 +25,9 @@ public class PlayerScript : MonoBehaviour
 
     [Tooltip("How much food the player has eaten")]
     public static int ateGrassNum;
+
+    [Tooltip("Whether or not the player has interacted with a manatee")]
+    public static bool interactedWithManatee;
 
     [Tooltip("Maximum breath for the player")]
     public float maxBreath = 180;
@@ -49,12 +52,19 @@ public class PlayerScript : MonoBehaviour
     {
         // Set initial values (10 health, max breath)
 		currentHealth = 10;
-		healthBar.SetMaxHealth(maxHealth);
-        healthBar.SetHealth(currentHealth);
+		if(healthBar != null)
+        {
+            healthBar.SetMaxHealth(maxHealth);
+            healthBar.SetHealth(currentHealth);
+        }
         ateGrassNum = 0;
+        interactedWithManatee = false;
 
-        currentBreath = maxBreath;
-        breathBar.SetMaxHealth(maxBreath);
+        if(breathBar != null)
+        {
+            currentBreath = maxBreath;
+            breathBar.SetMaxHealth(maxBreath);
+        }
 
        // transform.position = new Vector3 (camXPos, camYPos, camZPos);
     }

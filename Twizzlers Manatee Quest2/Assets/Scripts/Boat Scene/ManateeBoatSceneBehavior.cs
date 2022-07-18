@@ -8,7 +8,6 @@ using UnityEngine;
 /// @author Alex Wills
 /// Updated 6/26/2022
 /// </summary>
-[RequireComponent(typeof(ManateeBehavior2))]
 public class ManateeBoatSceneBehavior : MonoBehaviour
 {
     private ManateeBehavior2 manateeAI;
@@ -34,10 +33,15 @@ public class ManateeBoatSceneBehavior : MonoBehaviour
     [Tooltip("Animator for the manatee mesh")]
     [SerializeField] private Animator manateeAnimator;
 
+    [Tooltip("Sound of boat hitting manatee")]
+    [SerializeField] private AudioSource boatHitSound;
+
+    private AudioSource stressSound;
+    
     // Start is called before the first frame update
     void Start()
     {
-        manateeAI = this.GetComponent<ManateeBehavior2>();
+        manateeAI = this.GetComponentInChildren<ManateeBehavior2>();
 
         manateeAI.enabled = false;
 
@@ -45,6 +49,8 @@ public class ManateeBoatSceneBehavior : MonoBehaviour
         boatStrikeInfo.SetActive(false);
 
         manateeMaterial.SetTexture("_MainTex", normalManateeTexture);
+
+        stressSound = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -60,8 +66,7 @@ public class ManateeBoatSceneBehavior : MonoBehaviour
     {
         boatAnimator.Play("BoatHittingManatee");
 
-        // Make the manatee stress vocalizations
-        this.GetComponent<AudioSource>().Play();
+        
     }
 
     private void EnablePlayerMovement()
@@ -79,4 +84,22 @@ public class ManateeBoatSceneBehavior : MonoBehaviour
 
         
     }
+
+    private void Breathe()
+    {
+        manateeAnimator.SetBool("isBreathing", true);
+    }
+
+    public void BoatCollision()
+    {
+        ScarManatee();
+        // Make the manatee stress vocalizations
+        stressSound.Play();
+        stressSound.time = 2.3f;
+
+        // Make boat hit sound
+        boatHitSound.Play();
+    }
+
+    
 }

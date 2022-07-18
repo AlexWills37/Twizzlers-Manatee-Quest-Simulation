@@ -306,7 +306,7 @@ Transform:
   m_LocalScale: {x: 28.070862, y: 1, z: 26.396097}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &47127169
 GameObject:
@@ -785,12 +785,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183211431}
-  m_LocalRotation: {x: 0, y: 0.4873158, z: 0, w: 0.8732258}
-  m_LocalPosition: {x: 109.64, y: 72.3, z: -18.69}
+  m_LocalRotation: {x: -0, y: 0.4873158, z: -0, w: 0.8732258}
+  m_LocalPosition: {x: -96.1066, y: 193.66426, z: 123.484985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1754783791}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &196213325
 GameObject:
@@ -3711,7 +3711,7 @@ Transform:
   - {fileID: 162207262}
   - {fileID: 1626843486}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &731416732
 GameObject:
@@ -7741,12 +7741,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349273108}
-  m_LocalRotation: {x: 0.03346474, y: -0.9236667, z: -0.07760651, w: -0.37376085}
-  m_LocalPosition: {x: 112.042305, y: 68.131996, z: 46.93723}
+  m_LocalRotation: {x: 0.12306187, y: -0.37612012, z: -0.048348986, w: -0.9170888}
+  m_LocalPosition: {x: -108.45743, y: 190.80762, z: 183.22299}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1754783791}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1355627472
 PrefabInstance:
@@ -9106,7 +9106,7 @@ RectTransform:
   - {fileID: 1428150237}
   - {fileID: 564661530}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9674,6 +9674,8 @@ Transform:
   - {fileID: 1911292394}
   - {fileID: 820861423}
   - {fileID: 705507995}
+  - {fileID: 1349273110}
+  - {fileID: 183211433}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13767,7 +13769,7 @@ PrefabInstance:
     - target: {fileID: 3247214507154845006, guid: 571a504039ad97145b643ffbb0bf0dd6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3247214507154845006, guid: 571a504039ad97145b643ffbb0bf0dd6,
         type: 3}
@@ -14533,7 +14535,7 @@ RectTransform:
   - {fileID: 1928598132}
   - {fileID: 1210023631}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14693,7 +14695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 7.38, y: -3.07}
+  m_AnchoredPosition: {x: 7.38, y: -2.49}
   m_SizeDelta: {x: 128.8412, y: 74.34082}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2126161358
@@ -14715,8 +14717,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Although the manatees were scarred for life, they went on to live long
-    and fulfilling lives in the Sarasota Bay.
+  m_text: Boat hits are a common problem for manatees. We can help the manatees by
+    keeping our boats at slower speeds, especially in shallow waters where manatees
+    live.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

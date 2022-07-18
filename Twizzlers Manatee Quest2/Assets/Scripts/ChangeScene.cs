@@ -31,4 +31,13 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex);
     }
+
+    /// <summary>
+    /// Load the next scene in order of the build settings.
+    /// If the game is at the last scene, it should wrap back around to the first scene.
+    /// </summary>
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings);
+    }
 }

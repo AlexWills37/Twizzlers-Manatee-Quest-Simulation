@@ -25,6 +25,7 @@ public class AudioTrigger : MonoBehaviour
     void Start()
     {
         buttonPlaying.SetActive(false);
+
     }
 
 
@@ -49,10 +50,7 @@ public class AudioTrigger : MonoBehaviour
 
         // Wait until the audio source is no longer playing
         audioSource.Play();
-        while (audioSource.isPlaying)
-        {
-            yield return null;
-        }
+        yield return new WaitForSeconds(10f);
 
         // Swap buttons to show that the audio can be played again
         buttonPlaying.SetActive(false);
