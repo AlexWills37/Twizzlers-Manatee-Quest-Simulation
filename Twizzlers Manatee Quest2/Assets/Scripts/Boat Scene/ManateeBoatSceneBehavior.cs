@@ -51,6 +51,9 @@ public class ManateeBoatSceneBehavior : MonoBehaviour
         manateeMaterial.SetTexture("_MainTex", normalManateeTexture);
 
         stressSound = this.GetComponent<AudioSource>();
+
+        // Start the manatee in its swimming animation
+        manateeAnimator.SetBool("isSwimming", true);
     }
 
     // Update is called once per frame

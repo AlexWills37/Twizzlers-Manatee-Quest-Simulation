@@ -19,7 +19,7 @@ public class BabyManateeBehavior : ManateeBehavior2
     private Vector3 distanceFromParent;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
         // Ensure that the base manatee behavior is setup correctly
         base.Start();

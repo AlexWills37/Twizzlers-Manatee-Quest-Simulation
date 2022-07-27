@@ -42,8 +42,8 @@ public class TutorialBehavior : MonoBehaviour
 
     private string[] tasks = { "Move the thumbstick to swim around.", 
                                 "Swim to the seagrass to eat it and gain points.",
-                                "Press the Y button to swim to the surface.",
-                                "Press the X button to swim back underwater."};
+                                "Hold the Y button to swim to the surface.",
+                                "Hold the X button to swim back underwater."};
 
     [Tooltip("List of objects to activate for different tasks. Index = task number.")]
     [SerializeField] private GameObject[] tutorialObjects;
@@ -168,12 +168,13 @@ public class TutorialBehavior : MonoBehaviour
         // Wait before disabling the checkmark and progressing to the next task
         yield return new WaitForSeconds(progressDelay);
 
-        // Change color to white again
+        // Change color to black again
         for (float color = 0; color < 1; color += 0.1f)
         {
-            taskText.color = new Color(color, 1, color);
+            taskText.color = new Color(0, 1 - color, 0);
             yield return null;
         }
+        taskText.color = Color.black;
 
         checkmark.SetActive(false);
 

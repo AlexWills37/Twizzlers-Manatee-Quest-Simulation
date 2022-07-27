@@ -103,10 +103,14 @@ public class ManateeBehavior2 : MonoBehaviour
             // personal space
             else if (followingPlayer && !inPlayersSpace)
             {
+                // NOTE: This commented out code makes the manatee swim towards the player if they are close.
+                // It is commented out to stop the manatee from swimming towards the player, which could be unsettling.
+                // This code could be rewritten to slowly rotate and move towards the player in a less jarring way.
+
                 // Move a bit below the player's camera (so that the manatee isn't directly staring at you)
-                animator.SetBool("isSwimming", true);
-                this.transform.LookAt((player.transform.position - new Vector3(0, -1, 0)), Vector3.up);
-                this.transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime, Space.Self);
+                // animator.SetBool("isSwimming", true);
+                // this.transform.LookAt((player.transform.position - new Vector3(0, -1, 0)), Vector3.up);
+                // this.transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime, Space.Self);
 
             // If not moving towards the player and not in their space, swim around slowly
             } else if (!inPlayersSpace)

@@ -22,10 +22,14 @@ public class ManateeNameLabel : MonoBehaviour
     void Start()
     {
         nameLabel = this.GetComponent<TextMeshProUGUI>();
-        string name = "Sprinkles";
+        string name;
 
         // Make sure that the name exists
-        if(manateeIndex < ManateeNameChooser.chosenNames.Length)
+        if(ManateeNameChooser.chosenNames == null)
+        {
+            Debug.Log("Scenes occurred out of order, and no manatee names were chosen.");
+
+        } else if(manateeIndex < ManateeNameChooser.chosenNames.Length)
         {
             name = ManateeNameChooser.chosenNames[manateeIndex];
 
@@ -41,8 +45,8 @@ public class ManateeNameLabel : MonoBehaviour
                 name += " Jr.";
             }
 
+            nameLabel.SetText(name);
         }
 
-        nameLabel.SetText(name);
     }
 }

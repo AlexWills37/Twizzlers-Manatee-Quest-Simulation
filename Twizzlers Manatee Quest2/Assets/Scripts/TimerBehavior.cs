@@ -46,6 +46,23 @@ public class TimerBehavior : MonoBehaviour
         timerValue = timerStart;
         previousTimeValue = 0;
 
+        if (startTimerOnPlay)
+        {
+            StartTimer();
+        } else
+        {
+            decreasing = false;
+        }
+
+    }
+
+    // Start the timer when this is enabled if the setting is enabled
+    private void OnEnable()
+    {
+        if (startTimerOnPlay)
+        {
+            StartTimer();
+        }
     }
 
     // Update is called once per frame

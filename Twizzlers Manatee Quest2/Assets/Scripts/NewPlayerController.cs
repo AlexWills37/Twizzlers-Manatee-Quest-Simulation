@@ -39,7 +39,7 @@ public class NewPlayerController : MonoBehaviour
     [Tooltip("Top speed for the player")]
     [SerializeField] private float movementSpeed = 5f;
 
-    private Rigidbody rigidbody;
+    private new Rigidbody rigidbody;
 
 
     // Start is called before the first frame update

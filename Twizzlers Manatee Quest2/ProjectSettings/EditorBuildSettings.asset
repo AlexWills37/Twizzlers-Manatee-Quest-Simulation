@@ -5,39 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/Version2/Testing.unity
-    guid: 1347377f586b4cf45ae8f868e77b8b18
   - enabled: 1
-    path: Assets/Scenes/Version2/0 - Intro on Boat.unity
+    path: Assets/Scenes/0 - Intro on Boat.unity
     guid: fb34bff9767faa74f9825039bacaac29
   - enabled: 1
-    path: Assets/Scenes/Version2/1 - UnderwaterTutorial.unity
+    path: Assets/Scenes/1 - UnderwaterTutorial.unity
     guid: c3a6d7bb25d68834b87add7fec303aa5
   - enabled: 1
-    path: Assets/Scenes/Version2/2 - SocialLife.unity
+    path: Assets/Scenes/2 - SocialLife.unity
     guid: 3ef0b6b7a79a6f64da70bec2dbd0bff9
   - enabled: 1
-    path: Assets/Scenes/Version2/3 - Transition.unity
+    path: Assets/Scenes/3 - Transition.unity
     guid: 8d18d259f4643ce4f91bb2c9c265e371
   - enabled: 1
-    path: Assets/Scenes/Version2/4 - BoatScene.unity
+    path: Assets/Scenes/4 - BoatScene.unity
     guid: 16616cdb209e72a4c8c074f30a2c1ad9
   - enabled: 1
-    path: Assets/Scenes/Version2/5 - End Scene.unity
+    path: Assets/Scenes/5 - End Scene.unity
     guid: 62a56a5a0713591478c26bb77c1040e9
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 0de8a6fb28aea0b42b6cb5a5c71477bf,
       type: 2}
