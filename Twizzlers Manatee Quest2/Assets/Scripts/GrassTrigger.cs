@@ -41,6 +41,9 @@ public class GrassTrigger : MonoBehaviour
             // When eaten, increase player health and give haptic feedback.
             if (justAte == false)
             {
+                TelemetryManager.entries.Add(
+                    new TelemetryEntry("grassEaten", Vec3.from(grassObj.transform.position))
+                );
                 PlayerScript.currentHealth += healthValue;
                 PlayerScript.ateGrassNum += 1;
                 HapticFeedback.singleton.TriggerVibrationTime(0.2f);

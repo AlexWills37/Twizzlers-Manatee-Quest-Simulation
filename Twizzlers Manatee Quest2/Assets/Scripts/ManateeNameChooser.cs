@@ -63,6 +63,11 @@ public class ManateeNameChooser : MonoBehaviour
     /// <param name="selectedName"> the manatee name to add to the list </param>
     public void ChooseName(string selectedName)
     {
+        // Add an entry for the selected name. -EF
+        TelemetryManager.entries.Add(
+            new TelemetryEntry("nameSelected", selectedName)
+        );
+
         // Change the static list to choose the name
         chosenNames[currentManatee] = selectedName;
 

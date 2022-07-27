@@ -38,6 +38,14 @@ public class ChangeScene : MonoBehaviour
     /// </summary>
     public void LoadNextScene()
     {
+
+        int sceneNumber = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
+
+        // Add a telemetry entry saying the scene/level was changed.
+        TelemetryManager.entries.Add(
+            new TelemetryEntry("sceneChange", SceneManager.GetSceneAt(sceneNumber).name, (int) (Time.timeSinceLevelLoad / (double) 60))
+        );
+
         SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings);
     }
 }
