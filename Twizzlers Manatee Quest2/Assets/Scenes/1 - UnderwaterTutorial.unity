@@ -8750,6 +8750,24 @@ MonoBehaviour:
   healthBar: {fileID: 4377882988632477670}
   breathBar: {fileID: 4377882988397784490}
   breathDecreasing: 0
+--- !u!1 &1156485577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6363136617848158729, guid: 143031faec9ec264e85d929077c7cc08,
+    type: 3}
+  m_PrefabInstance: {fileID: 1156485572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1156485578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156485577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88a18db07d4d5b4098a2e7a674d681f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1188652558
 GameObject:
   m_ObjectHideFlags: 0
@@ -16060,8 +16078,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885074968}
-  m_LocalRotation: {x: 0.005771029, y: 0.101604834, z: -0.009167998, w: 0.9947659}
-  m_LocalPosition: {x: -1.7059304, y: 27.102163, z: -2.1159058}
+  m_LocalRotation: {x: -0.026378807, y: -0.97286385, z: -0.16271478, w: 0.16237007}
+  m_LocalPosition: {x: 70.82978, y: 10.24184, z: 94.94989}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2043708684}

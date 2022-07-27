@@ -30,6 +30,9 @@ public class RestartSimulationButton : MonoBehaviour
     /// </summary>
     private void ResetGame()
     {
+        TelemetryManager.entries.Add(
+            new TelemetryEntry("restart", "", (int) (Time.timeSinceLevelLoad / (double) 60))
+        );
         SceneManager.LoadScene(0);
     }
 }

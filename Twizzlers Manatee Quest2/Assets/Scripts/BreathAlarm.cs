@@ -42,12 +42,18 @@ public class BreathAlarm : MonoBehaviour
         {
             heartbeat.StartHeartbeat();
             warningActive = true;
+            TelemetryManager.entries.Add(
+                new TelemetryEntry("breathAlarmStart")
+            );
             StartCoroutine(WarningAlarm());
         }
 
         // If the player is no longer low on breath, turn off the warning.
         if(warningActive && PlayerScript.currentBreath > breathAlarmLimit)
         {
+            TelemetryManager.entries.Add(
+                new TelemetryEntry("breathAlarmEnd")
+            );
             heartbeat.StopHeartbeat();
             warningActive = false;
         }

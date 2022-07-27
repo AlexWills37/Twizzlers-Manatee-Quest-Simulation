@@ -144,6 +144,10 @@ public class ManateeBehavior2 : MonoBehaviour
             animator.SetBool("isRolling", true);
         }
 
+        TelemetryManager.entries.Add(
+            new TelemetryEntry("manateeInteraction")
+        );
+
         // Do show particles and increase player health regardless
         StartCoroutine(HappyParticleCoroutine());
         PlayerScript.currentHealth += 2;
@@ -231,6 +235,12 @@ public class ManateeBehavior2 : MonoBehaviour
     /// <returns> IEnumerator representing Coroutine to surface and breathe. </returns>
     private IEnumerator SurfaceAndBreathe()
     {
+
+        // Add a telemetry entry for breathing
+        TelemetryManager.entries.Add(
+            new TelemetryEntry("manateeBreathing")
+        );
+
         isSwimming = true;
 
         // Record the original Y so that we can float back down to this point
