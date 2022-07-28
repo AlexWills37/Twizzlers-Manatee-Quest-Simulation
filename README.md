@@ -1,3 +1,4 @@
+> This readme is currently under construction! More information and pictures coming soon!
 # EDAP Internship
  
 From https://github.com/ascemek/Twizzlers
