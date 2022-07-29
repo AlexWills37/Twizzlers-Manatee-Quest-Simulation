@@ -3,7 +3,7 @@
 
 > [Resources](/resources.md)
 
-> [README]()
+> [README](/README.md)
 
 If you want to understand everything about how this project works and how it's organized, this document is for you!
 
