@@ -55,17 +55,23 @@ Some scripts and scenes have parts that are not friendly to people unfamiliar wi
 ## Scene Documentation
 This section outlines all of the scenes in the Unity project, the interactions within, and the relevant assets/files. For each scene, this document goes over what happens in the scene, the intended gameplay, important mechanics and systems, and the scripts used in the scene.
 
-- [Project Documentation](#project-documentation)
+Since all of the scripts are documented here, if you don't know what a certain script is used for, try ctrl+f to search for it by name here!
+<!-- - [Project Documentation](#project-documentation)
   - [Credits](#credits)
   - [Scripting documentation note](#scripting-documentation-note)
   - [Versions](#versions)
   - [Important things to know](#important-things-to-know)
-  - [Scene Documentation](#scene-documentation)
+  - [Scene Documentation](#scene-documentation) -->
   - [Scene 0 - Introduction on Boat](#scene-0---introduction-on-boat)
+      - [***Why are there so many canvases?***](#why-are-there-so-many-canvases)
   - [Scene 1 - Tutorial](#scene-1---tutorial)
+      - [**Underwater Movement**](#underwater-movement)
+      - [**HUD**](#hud)
   - [Scene 2 - Social Life](#scene-2---social-life)
+      - [**Manatee Prefab**](#manatee-prefab)
+      - [**Water effects**](#water-effects)
   - [Scene 3 - Transition](#scene-3---transition)
-    - [Scene 4 - Boat Hit](#scene-4---boat-hit)
+  - [Scene 4 - Boat Hit](#scene-4---boat-hit)
   - [Scene 5 - Ending](#scene-5---ending)
 
 ## Scene 0 - Introduction on Boat
@@ -109,7 +115,7 @@ These canvases are then divided into 2 subcanvases.
 - `ManateeSoundCanvas` - a separate canvas, located near the manatee information, where the user can press a button to listen to manatee stress vocalizations.
 - `NameYourManateeCanvas` - another canvas that allows the user to choose the names of the manatees in the later scene.
 
-***Why are there so many canvases?***
+#### ***Why are there so many canvases?***
 
 [More information can be found here](https://unity.com/how-to/unity-ui-optimization-tips), but in a nutshell any changes to a UI element (timer change, button press, etc.), cause the parent canvas to refresh every object in the canvas, so canvases should be separated for optimization. The current canvas organization in the project could be improved for better performance.
 
@@ -151,7 +157,7 @@ Filename: `1 - Underwater Tutorial`
   - Learn to go back down with X
 - Move on automatically to the next scene
 
-**Underwater Movement**
+#### **Underwater Movement**
 
 The OVR Player Controller does not allow for gravity to be disabled, so this scene (and all underwater scenes) use a custom player controller. This controller has a rigidbody with frozen rotation, no gravity, and no drag. Velocity is set based entirely on the player's input with the attached scripts.
 
@@ -159,7 +165,7 @@ The OVR Player Controller does not allow for gravity to be disabled, so this sce
 
 The underwater scenes all have a Heads Up Display (HUD) to show the player information as they move around (health, breath, text/images), so the Player and HUD are grouped together in this object.
 
-**HUD**
+#### **HUD**
 
 Having the HUD at a fixed rotation and distance from the player can be uncomfortable in VR and make information difficult to read. You might want to look up to better see the health bar, so the health bar should not move up with your gaze.
 
@@ -222,7 +228,7 @@ Filename: `2 - SocialLife`
 
 To eat seagrass, you just have to collide with it. In the hierarchy, the seagrass is under Kelps, which is under Environment.
 
-**Manatee Prefab**
+#### **Manatee Prefab**
 ![The user petting a manatee, who is giving off smiley face emojis](/Documentation%20Resources/Pet%20a%20manatee.png)
 The manatee prefab has several components to enable its behavior.
 - **ManateeAI** - this is the parent object, which has the main `ManateeBehavior2.cs` script, the rigidbody, and the audio source.
@@ -263,7 +269,7 @@ The manatee prefab has several components to enable its behavior.
 
 These fish are controlled entirely with an asset found [here](https://assetstore.unity.com/packages/3d/characters/animals/simple-boids-flocks-of-birds-fish-and-insects-164188).
 
-**Water effects**
+#### **Water effects**
 - **Sun rays** - a particle system that follows the player's location
 - **Blue fog** - a setting at the bottom of the Lighting tab, under "Other Settings"
 - **Water surface** - from Standard Assets
@@ -301,7 +307,7 @@ This scene has the Camera Rig, a HUD with the `HUDBehavior.cs` script, and a tim
 - HUDBehavior found in [Scene 1 - Tutorial](#scene-1---tutorial)
 - TimerBehavior and ChangeScene found in [Scene 0 - Introduction](#scene-0---introduction-on-boat)
 
-### Scene 4 - Boat Hit
+## Scene 4 - Boat Hit
 > [Return to scene list](#scene-documentation)
 
 Filename: `4 - BoatScene`

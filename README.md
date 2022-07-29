@@ -33,9 +33,9 @@ Manatees, also known as "sea cows," are marine mammals that are an iconic part o
 ## Purpose
 There are 2 central purposes to this game.
 1. Raise awareness about manatees and boat strikes, and educate students on the ways they can prevent boat strikes.
-2. Measure the effectivness of this simulation on the Quest 2 headset (data telemetry, usability, educational impact, etc.) against a simularly designed simiulation on the Google Cardboard headset.
+2. Measure the effectivness of this simulation on the Quest 2 headset (data telemetry, usability, educational impact, etc.) against a similarly designed simiulation on the Google Cardboard headset.
 
-By the end of this game, we hope that embodying a manatee and witnessing a boat strike build empathy within the user for these important marine mammals.
+By the end of this game, we hope that embodying a manatee and witnessing a boat strike will build empathy within the user for these important marine mammals.
 
 ## How to install this game
 Currently, since this game is collecting data for a study, this game is not available on the Quest store. With Unity, however, you can install this game on your Quest 2 headset.
