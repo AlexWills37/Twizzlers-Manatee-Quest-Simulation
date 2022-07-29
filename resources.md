@@ -3,7 +3,7 @@
 
 > [Documentation](/documentation.md)
 
->[README]()
+>[README](/README.md)
 
 
 This file contains a list of helpful links and resources I used when developing this project. Before starting development, I had a basic understanding of C# with Unity and Oculus Quest and a background in Java and Python.
