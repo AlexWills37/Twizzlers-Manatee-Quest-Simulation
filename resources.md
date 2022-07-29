@@ -1,24 +1,26 @@
 # Resources used in development
 > *Links to other documents*
-
-> [Documentation](/documentation.md)
-
+>
+> [Documentation](/documentation.md) - *Scene-by-scene breakdown of how everything works*
+>
 >[README](/README.md)
 
 
 This file contains a list of helpful links and resources I used when developing this project. Before starting development, I had a basic understanding of C# with Unity and Oculus Quest and a background in Java and Python.
 
 ## Table of Contents
-- [C#](#c-sharp)
-- [Oculus Quest 2 Things](#oculus-quest-2-things)
-- [Errors](#errors)
-- [UI and Canvases](#ui-and-canvases)
-- [Particles](#particles)
-- [Post-Processing](#post-processing-camera-effects)
-- [Audio](#audio)
-- [Collision and Physics](#collisions-and-physics)
-- [Coroutines](#coroutines-and-other-ways-to-delayprolong-methods)
-- [Custom Editors](#editor-shenanigans)
+- [Resources used in development](#resources-used-in-development)
+  - [Table of Contents](#table-of-contents)
+  - [C Sharp](#c-sharp)
+  - [Oculus Quest 2 Things](#oculus-quest-2-things)
+  - [Errors](#errors)
+  - [UI and Canvases](#ui-and-canvases)
+  - [Particles](#particles)
+  - [Post Processing (camera effects)](#post-processing-camera-effects)
+  - [Audio](#audio)
+  - [Collisions and Physics](#collisions-and-physics)
+  - [Coroutines and other ways to delay/prolong methods](#coroutines-and-other-ways-to-delayprolong-methods)
+  - [Editor Shenanigans](#editor-shenanigans)
 
 
 ## C Sharp
@@ -44,19 +46,19 @@ This file contains a list of helpful links and resources I used when developing 
 ## Particles
 - [Particle Unity Docs](https://docs.unity3d.com/ScriptReference/ParticleSystem.html)
   > Particles are weird!
-
+  >
   > You can access a particle system’s modules with dot notation.
-
+  >
   > These modules only have `get`, no `set`, and the modules are C# structs (which are normally passed by value, not reference).
-
+  >
   > Unity is weird though, so you can modify the modules through this.
-
+  >
   > Store the module in a variable
-
+  >
   > `var emissionMod = particles.emission;`
-
+  >
   > then edit the variable
-
+  >
   > `emissionMod.rateOverTime = 2;`
 
 ## Post Processing (camera effects)
@@ -78,11 +80,11 @@ This file contains a list of helpful links and resources I used when developing 
   > Coroutines have better performance
 - [All about coroutines in Unity Docs](https://docs.unity3d.com/2019.4/Documentation/Manual/Coroutines.html)
   > Any method in the scripts that returns an `IEnumerator` is most likely a coroutine! (example: `private IEnumerator SetRotationAfterDelay(float delay)` in `ChangeCameraRotation.cs`)
-
+  >
   > Coroutine methods have a `yield return` statement, which will pause the method for a bit.
-
+  >
   > `yield return null` will pause the method until the next frame.
-
+  >
   > `yield return new WaitForSecond(float seconds)` will pause the method until the amount of time specified has passed.
 
 ## Editor Shenanigans

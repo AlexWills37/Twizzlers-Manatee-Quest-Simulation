@@ -1,8 +1,8 @@
 # Project Documentation
 > *Links to other documents*
-
-> [Resources](/resources.md)
-
+>
+> [Resources](/resources.md) - *List of resources used to learn and assist development*
+> 
 > [README](/README.md)
 
 If you want to understand everything about how this project works and how it's organized, this document is for you!
@@ -55,12 +55,18 @@ Some scripts and scenes have parts that are not friendly to people unfamiliar wi
 ## Scene Documentation
 This section outlines all of the scenes in the Unity project, the interactions within, and the relevant assets/files. For each scene, this document goes over what happens in the scene, the intended gameplay, important mechanics and systems, and the scripts used in the scene.
 
-- [Scene 0 - Introduction on Boat](#scene-0---introduction-on-boat)
-- [Scene 1 - Tutorial](#scene-1---tutorial)
-- [Scene 2 - Social Life](#scene-2---social-life)
-- [Scene 3 - Transition](#scene-3---transition)
-- [Scene 4 - Boat Hit](#scene-4---boat-hit)
-- [Scene 5 - Ending](#scene-5---ending)
+- [Project Documentation](#project-documentation)
+  - [Credits](#credits)
+  - [Scripting documentation note](#scripting-documentation-note)
+  - [Versions](#versions)
+  - [Important things to know](#important-things-to-know)
+  - [Scene Documentation](#scene-documentation)
+  - [Scene 0 - Introduction on Boat](#scene-0---introduction-on-boat)
+  - [Scene 1 - Tutorial](#scene-1---tutorial)
+  - [Scene 2 - Social Life](#scene-2---social-life)
+  - [Scene 3 - Transition](#scene-3---transition)
+    - [Scene 4 - Boat Hit](#scene-4---boat-hit)
+  - [Scene 5 - Ending](#scene-5---ending)
 
 ## Scene 0 - Introduction on Boat
 > [Return to scene list](#scene-documentation)

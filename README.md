@@ -1,109 +1,83 @@
 > This readme is currently under construction! More information and pictures coming soon!
-# EDAP Internship
+# EDAP Internship - Twizzlers Manatee Simulation Game for Quest 2
  
-From https://github.com/ascemek/Twizzlers
+> *Links to other documents*
+>
+> [Documentation](/documentation.md) - *Scene-by-scene breakdown of how everything works*
+>
+>[Resources](/resources.md) - *List of resources used to learn and assist development*
+
+This project is a game developed for Oculus Quest 2, where you play as a manatee to learn about issues that manatees face, in particular boat strikes.
+
+## Table of Contents
+- [EDAP Internship - Twizzlers Manatee Simulation Game for Quest 2](#edap-internship---twizzlers-manatee-simulation-game-for-quest-2)
+  - [Table of Contents](#table-of-contents)
+  - [Trailer](#trailer)
+  - [Background](#background)
+  - [Purpose](#purpose)
+  - [How to install this game](#how-to-install-this-game)
+      - [Prerequisites](#prerequisites)
+      - [Enabling developer mode on your headset](#enabling-developer-mode-on-your-headset)
+      - [Installing the game](#installing-the-game)
+  - [Status of the Game](#status-of-the-game)
+
+## Trailer
+> Trailer coming soon!
+> 
+> Full gameplay can be found [here](https://youtu.be/SXgbvRPEm6U).
+
+## Background
+![Picture of a manatee](/Twizzlers%20Manatee%20Quest2/Assets/Sprites/manatee-1600.jpg)
+Manatees, also known as "sea cows," are marine mammals that are an iconic part of the Florida Gulf Bay ecosystem. Unfortunately, manatees face a variety of issues caused by humans. One such issue is boat strikes, when fast-moving boats hit manatees with their hulls or propellors. Since manatees are mammals, they breathe air, and must come to the surface periodically, where they are at risk of being hit by a boat. Some boat hits can be fatal, while others leave lifelong scars on the manatee. This issue is entirely preventable if boaters take steps to ensure they do not hit manatees. Boaters should follow recommended speeds as told by sign postings, and they should take care to be slow and on the lookout for manatees when in their habitats.
+
+## Purpose
+There are 2 central purposes to this game.
+1. Raise awareness about manatees and boat strikes, and educate students on the ways they can prevent boat strikes.
+2. Measure the effectivness of this simulation on the Quest 2 headset (data telemetry, usability, educational impact, etc.) against a simularly designed simiulation on the Google Cardboard headset.
+
+By the end of this game, we hope that embodying a manatee and witnessing a boat strike build empathy within the user for these important marine mammals.
+
+## How to install this game
+Currently, since this game is collecting data for a study, this game is not available on the Quest store. With Unity, however, you can install this game on your Quest 2 headset.
+
+#### Prerequisites
+- Quest 2 headset
+- Oculus developer account (to enable developer mode)
+- Wired connection from Quest 2 to your computer
+- Unity Editor version 2019.4.34f1
+
+#### Enabling developer mode on your headset
+1. Create an Oculus developer account: https://developer.oculus.com/
+2. Download the Oculus app on a mobile phone
+3. Log into your developer account on your Oculus Quest 2
+4. Log into your developer account on the mobile app
+5. Connect to your headset from the mobile app
+6. Navigate in the mobile app to your Quest Device, then scroll down and click on "Developer Mode"
+7. Enable Developer mode (this will allow you to download applications from unofficial sources)
+
+#### Installing the game
+1. Download this repository (or just the "Twizzlers Manatee Quest2" folder)
+2. Open the "Twizzlers Manatee Quest2" folder with the Unity Editor version 2019.4.34f1
+3. In the top bar of the window, click on File, then Build Settings
+4. Connect your Quest headset to your computer
+5. Click Build and Run. You can save the APK file anywhere on your computer
+6. On the Oculus Quest 2, click "Allow to allow your computer to access your Quest files"
+7. When the build is finished, the game should be running on your headset!
+8. If the game did not automatically run, or if you closed out and would like to play the game, on your headset, open the Quest menu and go to your apps
+9. In the top right corner, there should be a dropdown menu. By default, All is selected. Click on the dropdown menu
+10. At the bottom of the dropdown menu, click on Unknown Sources
+11. Click on the game, titled "Twizzlers Manatee"
 
 
-## Scripting documentation note
-- All of the dates found in file headers (typically to show when the file was updated) are in Month/Day/Year format
-- Quest-specific code
-  - `NewPlayerController.cs` and `NewVerticalMovement.cs`
-    > both files use raw input mapping from the Quest (https://developer.oculus.com/documentation/unity/unity-ovrinput/)
+## Status of the Game
+*(Updated July 29, 2022)*
 
-## Versions
- - **Unity Editor** - 2019.4.34f1
- - **Oculus Integration Asset** - Version 40.0.0
-   > Unless you reimport this asset, the project will have this version.
+Currently, the summer 2022 internship is over and the first final iteration of the game is complete. There are a few known issues and unfinished parts to be addressed.
+- The manatee prefab is using an old version (Vo3) of the manatee model. The prefab has the new model (V05), but still utilizes the old one because the new model does not yet have fully working animations.
+  - When switching over to the new model, remember to consider the following:
+    1. The new model uses a new version of the animation controller (manatee_Vo5 instead of manatee_Vo3). You may have to set up the animation states with the working animations.
+    2. Currently, the **PhysicalManatee** needs a reference to the player's physical space collider, which can be drag & dropped in the inspector. It is easy to forget this, since the **PhysicalManatee** is a child of one of the spine bones, several layers down in the hierarchy.
+    3. Like the **PhysicalManatee**, the **Nametag** is several layers down in the hierarchy, a child of the Neck bone. Every instance of the manatee prefab should have the Manatee Name Label script configured in the inspector. This script is in the TMPro object that is a child of **Nametag**.
+    ![Image of the Nametag's text location in the manatee prefab hierarchy](/Documentation%20Resources/Manatee%20Hierarchy.jpg)
 
-## Scene Documentation
-This section outlines all of the scenes in the Unity project, the interactions within, and the relevant assets/files.
-
-- [Scene 0 - Introduction on Boat](#scene-0---introduction-on-boat)
-- [Scene 1 - Tutorial](#scene-1---tutorial)
-- [Scene 2 - Social Life](#scene-2---social-life)
-- [Scene 3 - Transition](#scene-3---transition)
-- [Scene 4 - Boat Hit](#scene-4---boat-hit)
-- [Scene 5 - Ending](#scene-5---ending)
-
-### Scene 0 - Introduction on Boat
-> [Return to scene list](#scene-documentation)
-
-Filename: `0 - Intro on Boat`
-
-**Overview**:
-This is the first scene of the game. On this boat, the player will learn about manatees, get adjusted in VR, name their manatee friends, and start the game.
-
-**Intended gameplay**:
-- Read the title
-- Learn how to control the game in VR
-- Listen to manatee stress vocalization by clicking the button
-- Read and learn some facts about manatees
-- Click on names to name the two adult manatees in the game
-- Start the game
-
-**Canvases**
-
-There are several canvases with text and images explaining controls and manatee facts. All of the canvases can be seen in the hierarchy under `InformationCanvases`.
-
-These canvases are then divided into 2 subcanvases.
-
-`Static Canvas`: for most static signs.
-- `Title` - contains the game's title and an image of a manatee.
-- `Controls` - shows a diagram and instructions on how to click using the Quest2 controllers.
-- `Manatee Info Canvas` - has 2 textboxes and the manatee picture giving manatee facts.
-- `Arrows` - holds all of the arrow images that point from one canvas area to another. Used to guide the player to read the canvases from left to right, starting with the title sign.
-
-`Interaction Canvas`: for interactable signs.
-- `Story` - holds the text explaining the game.
-- `Become a Manatee Button` - the button that will start the game. Located underneath the story text.
-- `Move on after some time seconds anyway` - text element next to the manatee button that will automatically change the scene after time has passed. In the inspector, under the `Timer Behavior` component of this object, you can adjust the `Timer Start` value to change how many seconds this object counts down to.
-- `ManateeSoundCanvas` - a separate canvas, located near the manatee information, where the user can press a button to listen to manatee stress vocalizations.
-- `NameYourManateeCanvas` - another canvas that allows the user to choose the names of the manatees in the later scene.
-
-***Why are there so many canvases?***
-
-[More information can be found here](https://unity.com/how-to/unity-ui-optimization-tips), but in a nutshell any changes to a UI element (timer change, button press, etc.), cause the parent canvas to refresh every object in the canvas, so canvases should be separated for optimization. The current canvas organization in the project could be improved for better performance.
-
-**Player**
-
-The player in this scene uses the `OVR Player Controller` and `UIHelpers` from the Oculus Integration Package. The `OVR Player Controller` allows the user to move around with the joystick, and the `UIHelpers` (found in the hierarchy) creates the red pointer coming out of the user's hand, and allows the user to interact with the canvas buttons. In the `OVR Input Module` component (part of the EventSystems, which is a child of the UIHelpers), you can adjust which buttons count as a click with the Joy Pad Click Button. Currently it is set to either of the triggers.
-
-**AudioManager**
-
-This object contains all of the sound effects in the scene. Currently the ocean sound effect is constant, and the manatee stress vocalization is activated with the button on the canvas.
-
-
-### Scene 1 - Tutorial
-> [Return to scene list](#scene-documentation)
-
-Filename: `1 - Underwater Tutorial`
-
-**Overview**: This scene introduces the player to the gameplay mechanics and prepares them for the rest of the game, playing underwater as a manatee.
-
-### Scene 2 - Social Life
-> [Return to scene list](#scene-documentation)
-
-Filename: `2 - SocialLife`
-
-**Overview**: This is the main game. In this scene, the user will swim around as a manatee and complete their two tasks: eat 10 seagrass, and pet a manatee friend. They must also make sure they do not run out of breath, and surface to breathe when it gets low.
-
-### Scene 3 - Transition
-> [Return to scene list](#scene-documentation)
-
-Filename: `3 - Transition`
-
-**Overview**: This scene is purely a transition from gameplay, where the user can swim around, to the boat scene, where the user will not be able to move.
-
-### Scene 4 - Boat Hit
-> [Return to scene list](#scene-documentation)
-
-Filename: `4 - BoatScene`
-
-**Overview**: In this scene, the player experiences the loud and annoying sound of boats speeding on the surface, and they witness a boat hitting one of their manatee friends. The goal of this scene is to demonstrate the issue that we are trying to address.
-
-### Scene 5 - Ending
-> [Return to scene list](#scene-documentation)
-
-Filename: `5 - End Scene`
-
-**Overview**: This scene has some final remarks about boat hit statistics, a farewell, and the option to either quit or replay the game.
+- The transitions between manatee animations should be edited for more natural transitions. In the [full gameplay video](https://youtu.be/SXgbvRPEm6U?t=120), you can see the manatee animate strangely when being pet, which is supposed to rigger the rolling animation.
