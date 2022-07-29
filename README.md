@@ -80,4 +80,4 @@ Currently, the summer 2022 internship is over and the first final iteration of t
     3. Like the **PhysicalManatee**, the **Nametag** is several layers down in the hierarchy, a child of the Neck bone. Every instance of the manatee prefab should have the Manatee Name Label script configured in the inspector. This script is in the TMPro object that is a child of **Nametag**.
     ![Image of the Nametag's text location in the manatee prefab hierarchy](/Documentation%20Resources/Manatee%20Hierarchy.jpg)
 
-- The transitions between manatee animations should be edited for more natural transitions. In the [full gameplay video](https://youtu.be/SXgbvRPEm6U?t=120), you can see the manatee animate strangely when being pet, which is supposed to rigger the rolling animation.
+- The transitions between manatee animations should be edited for more natural transitions. In the [full gameplay video](https://youtu.be/SXgbvRPEm6U?t=120), you can see the manatee animate strangely when being pet, which is supposed to trigger the rolling animation.
