@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// General script to allow an animation to start with a public method.
 /// For this script to work, the attached game object should have an Animator component
-/// that has a bool parameter called "playAnim"
+///     that has a bool parameter called "playAnim"
 /// 
 /// @author Alex Wills
 /// Updated 6/26/22

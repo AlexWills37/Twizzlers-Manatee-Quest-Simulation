@@ -5,7 +5,7 @@
 >
 > [Documentation](/documentation.md) - *Scene-by-scene breakdown of how everything works*
 >
->[Resources](/resources.md) - *List of resources used to learn and assist development*
+> [Resources](/resources.md) - *List of resources used to learn and assist development*
 
 This project is a game developed for Oculus Quest 2, where you play as a manatee to learn about issues that manatees face, in particular boat strikes.
 

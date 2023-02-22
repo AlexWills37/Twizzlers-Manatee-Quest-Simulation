@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class TelemetryManager : MonoBehaviour {
     public static TelemetryManager instance;
@@ -15,14 +16,21 @@ public class TelemetryManager : MonoBehaviour {
     public static List<TelemetryEntry> entries = new List<TelemetryEntry>();
     public static string url = "http://5.161.114.134/";
 
+    public Transform playerTransform;
+
+    public Text debugText;
+
     private void Awake() {
+        // Ensure there is only one instance of the telemetry manager between scenes
         if (instance != null) {
-            Destroy(gameObject);
+
+            Destroy(this);
         } else {
             instance = this;
             StartCoroutine(Initialize());
             DontDestroyOnLoad(gameObject);
         }
+        debugText.text = "It is working";
     }
 
     private IEnumerator Initialize() {
@@ -51,7 +59,7 @@ public class TelemetryManager : MonoBehaviour {
 
         /* Raycast to find what the user is looking at */ {
             RaycastHit hit;
-            Ray ray = new Ray(transform.position, transform.forward);
+            Ray ray = new Ray(playerTransform.position, playerTransform.forward);
             if (Physics.Raycast(ray, out hit, 100)) {
                 if (hit.transform.gameObject.name == lookingAtTarget) {
                     lookingAtCount++;
@@ -76,16 +84,25 @@ public class TelemetryManager : MonoBehaviour {
     private IEnumerator Poll() {
         /* Handle Head Rotation */ {
             entries.Add(
-                new TelemetryEntry("playerHeadRotation", Vec3.from(transform.eulerAngles))
+                new TelemetryEntry("playerHeadRotation", Vec3.from(playerTransform.eulerAngles))
             );
         }
 
         /* Handle Player Position */ {
             entries.Add(
-                new TelemetryEntry("playerPosition", Vec3.from(transform.position))
+                new TelemetryEntry("playerPosition", Vec3.from(playerTransform.position))
             );
         }
 
         yield return null;
+    }
+
+    /// <summary>
+    /// Update this script's player transform (when the player object changes between scenes)
+    /// </summary>
+    /// <param name="player"> The new player transform to track </param>
+    public void SetPlayerTransform(Transform player)
+    {
+        this.playerTransform = player;
     }
 }
