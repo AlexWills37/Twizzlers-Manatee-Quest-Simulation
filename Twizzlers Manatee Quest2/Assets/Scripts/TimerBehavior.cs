@@ -109,6 +109,9 @@ public class TimerBehavior : MonoBehaviour
     /// <param name="timeToDisplay"> The time value to show in the text </param>
     private void UpdateText(string timeToDisplay)
     {
-        timerText.SetText(preText + timeToDisplay + postText);
+        if(timerText != null)
+        {
+            timerText.SetText(preText + timeToDisplay + postText);
+        }
     }
 }

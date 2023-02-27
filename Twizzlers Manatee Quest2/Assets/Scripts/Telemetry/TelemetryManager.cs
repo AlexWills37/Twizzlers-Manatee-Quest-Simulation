@@ -18,8 +18,6 @@ public class TelemetryManager : MonoBehaviour {
 
     public Transform playerTransform;
 
-    public Text debugText;
-
     private void Awake() {
         // Ensure there is only one instance of the telemetry manager between scenes
         if (instance != null) {
@@ -29,8 +27,7 @@ public class TelemetryManager : MonoBehaviour {
             instance = this;
             StartCoroutine(Initialize());
             DontDestroyOnLoad(gameObject);
-        }
-        debugText.text = "It is working";
+        }   
     }
 
     private IEnumerator Initialize() {
@@ -40,9 +37,15 @@ public class TelemetryManager : MonoBehaviour {
             // Send the request
             yield return webRequest.SendWebRequest();
             // Parse the json response
-            var jsonResponse = JsonUtility.FromJson<CreateSessionResponse>(webRequest.downloadHandler.text);
-            // Set the session id
-            TelemetryManager.session = jsonResponse.data.session;
+            try
+            {
+                var jsonResponse = JsonUtility.FromJson<CreateSessionResponse>(webRequest.downloadHandler.text);
+                // Set the session id
+                TelemetryManager.session = jsonResponse.data.session;
+            } catch (Exception e)
+            {
+                Debug.Log(e);
+            }
         }
     }
 
@@ -58,17 +61,22 @@ public class TelemetryManager : MonoBehaviour {
         }
 
         /* Raycast to find what the user is looking at */ {
-            RaycastHit hit;
-            Ray ray = new Ray(playerTransform.position, playerTransform.forward);
-            if (Physics.Raycast(ray, out hit, 100)) {
-                if (hit.transform.gameObject.name == lookingAtTarget) {
-                    lookingAtCount++;
-                } else {
-                    TelemetryManager.entries.Add(
-                        new TelemetryEntry("lookingAt", hit.transform.gameObject.name, (int) (lookingAtCount / (double) 60))
-                    );
-                    lookingAtTarget = hit.transform.gameObject.name;
-                    lookingAtCount = 1;
+
+            // Make sure the player transform is active before doing the raycas
+            if(playerTransform != null)
+            {
+                RaycastHit hit;
+                Ray ray = new Ray(playerTransform.position, playerTransform.forward);
+                if (Physics.Raycast(ray, out hit, 100)) {
+                    if (hit.transform.gameObject.name == lookingAtTarget) {
+                        lookingAtCount++;
+                    } else {
+                        TelemetryManager.entries.Add(
+                            new TelemetryEntry("lookingAt", hit.transform.gameObject.name, (int) (lookingAtCount / (double) 60))
+                        );
+                        lookingAtTarget = hit.transform.gameObject.name;
+                        lookingAtCount = 1;
+                    }
                 }
             }
         }
@@ -82,16 +90,21 @@ public class TelemetryManager : MonoBehaviour {
     }
 
     private IEnumerator Poll() {
-        /* Handle Head Rotation */ {
-            entries.Add(
-                new TelemetryEntry("playerHeadRotation", Vec3.from(playerTransform.eulerAngles))
-            );
-        }
 
-        /* Handle Player Position */ {
-            entries.Add(
-                new TelemetryEntry("playerPosition", Vec3.from(playerTransform.position))
-            );
+        // Ensure player transform is set up before doing anything
+        if (playerTransform != null)
+        {
+            /* Handle Head Rotation */ {
+                entries.Add(
+                    new TelemetryEntry("playerHeadRotation", Vec3.from(playerTransform.eulerAngles))
+                );
+            }
+
+            /* Handle Player Position */ {
+                entries.Add(
+                    new TelemetryEntry("playerPosition", Vec3.from(playerTransform.position))
+                );
+            }
         }
 
         yield return null;
