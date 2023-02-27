@@ -8754,24 +8754,6 @@ MonoBehaviour:
   healthBar: {fileID: 4377882988632477670}
   breathBar: {fileID: 4377882988397784490}
   breathDecreasing: 0
---- !u!1 &1156485577 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6363136617848158729, guid: 143031faec9ec264e85d929077c7cc08,
-    type: 3}
-  m_PrefabInstance: {fileID: 1156485572}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1156485578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1156485577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e88a18db07d4d5b4098a2e7a674d681f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1188652558
 GameObject:
   m_ObjectHideFlags: 0
@@ -16025,6 +16007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1885074970}
   - component: {fileID: 1885074969}
+  - component: {fileID: 1885074971}
   m_Layer: 0
   m_Name: Water SurfaceReflectionCenterEyeAnchor
   m_TagString: Untagged
@@ -16082,13 +16065,22 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885074968}
-  m_LocalRotation: {x: -0.032447476, y: 0.052412137, z: 0.00004209718, w: -0.99809825}
-  m_LocalPosition: {x: 111.134254, y: -63.165077, z: 35.78618}
+  m_LocalRotation: {x: 0.0930737, y: 0.046291374, z: 0.004332296, w: -0.9945731}
+  m_LocalPosition: {x: -0.35652757, y: 16.94941, z: 54.52028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2043708684}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &1885074971
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885074968}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!1 &1888063261
 GameObject:
   m_ObjectHideFlags: 0

@@ -859,8 +859,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183211431}
-  m_LocalRotation: {x: -0.026378807, y: -0.97286385, z: -0.16271478, w: 0.16237007}
-  m_LocalPosition: {x: -132.90433, y: 263.47693, z: 242.98087}
+  m_LocalRotation: {x: 0.0930737, y: 0.046291374, z: 0.004332296, w: -0.9945731}
+  m_LocalPosition: {x: -206.10312, y: 272.31366, z: 196.69527}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1754783791}
@@ -14043,6 +14043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88a18db07d4d5b4098a2e7a674d681f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
+  debugText: {fileID: 0}
 --- !u!1 &1947831597
 GameObject:
   m_ObjectHideFlags: 0
@@ -19284,6 +19286,7 @@ GameObject:
   - component: {fileID: 8408924988999179111}
   - component: {fileID: 4538674183165818915}
   - component: {fileID: 8408924989006118810}
+  - component: {fileID: 8408924989006118812}
   m_Layer: 0
   m_Name: '#OVRPlayerController TEST'
   m_TagString: Player
@@ -19322,6 +19325,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8408924989006118812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8408924989006118809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9c03d7a00a55d45bf1c78a536b3c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 8408924989005947835}
 --- !u!1 &8408924989006118813
 GameObject:
   m_ObjectHideFlags: 0
