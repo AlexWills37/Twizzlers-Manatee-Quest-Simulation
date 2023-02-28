@@ -29,7 +29,9 @@ public class ManateeNameChooser : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] nameTexts;
     private GameObject[] nameTextSelectors;
 
-    private int currentManatee;
+    private int currentManatee; // The index of the currently selected manatee
+
+    private IntroButtonLinker slideButtonControl;   // Prevents the user from continuing the scene until they choose manatee names
 
     // Start is called before the first frame update
     void Start()
@@ -54,8 +56,23 @@ public class ManateeNameChooser : MonoBehaviour
 
         // Keep the first indicator on
         nameTextSelectors[0].SetActive(true);
+
+        // Get the button linker
+        slideButtonControl = this.GetComponent<IntroButtonLinker>();
     }
 
+    /// <summary>
+    /// Lock the slide continue button when this game object is enabled
+    /// </summary>
+    private void OnEnable()
+    {
+        // Ensure button linker exists
+        if(slideButtonControl == null)
+        {
+            slideButtonControl = this.GetComponent<IntroButtonLinker>();
+        }
+        slideButtonControl.LockButton("Name your friends!");
+    }
 
     /// <summary>
     /// Select a manatee name.
@@ -82,5 +99,12 @@ public class ManateeNameChooser : MonoBehaviour
 
         // Enable the next manatee's indicator
         nameTextSelectors[currentManatee].SetActive(true);
+
+        // Ensure the button is unlocked when the user has selected all names
+        // (This occurs when we loop back to the first manatee, when the first manatee has been assigned a name already)
+        if(currentManatee == 0 && chosenNames[0] != "" && slideButtonControl != null)
+        {
+            slideButtonControl.UnlockButton();
+        }
     }
 }
