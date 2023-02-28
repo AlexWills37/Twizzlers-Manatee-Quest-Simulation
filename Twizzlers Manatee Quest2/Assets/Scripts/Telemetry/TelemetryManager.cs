@@ -14,7 +14,7 @@ public class TelemetryManager : MonoBehaviour {
     public static string lastScene = "";
     public static string session = "";
     public static List<TelemetryEntry> entries = new List<TelemetryEntry>();
-    public static string url = "http://5.161.114.134/";
+    public static string url = "http://18.222.189.147/";
 
     public Transform playerTransform;
 
@@ -36,15 +36,21 @@ public class TelemetryManager : MonoBehaviour {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(TelemetryManager.url + "session/new")) {
             // Send the request
             yield return webRequest.SendWebRequest();
+            
+            // ~~~~~~ This should be in the try catch loop, but is outside so that it prints more detailed errors ~~~~~
             // Parse the json response
+            var jsonResponse = JsonUtility.FromJson<CreateSessionResponse>(webRequest.downloadHandler.text);
+            Debug.Log("jsonResponse: " + jsonResponse);
+            // Set the session id
+            TelemetryManager.session = jsonResponse.data.session;
+            // ~~~~~~~ End of try block ~~~~~~~
+
             try
             {
-                var jsonResponse = JsonUtility.FromJson<CreateSessionResponse>(webRequest.downloadHandler.text);
-                // Set the session id
-                TelemetryManager.session = jsonResponse.data.session;
+                //Debug.Log("Telemetry successfully initialized");
             } catch (Exception e)
             {
-                Debug.Log(e);
+                Debug.LogError("An error occured with telemetry");
             }
         }
     }
