@@ -37,17 +37,15 @@ public class TelemetryManager : MonoBehaviour {
             // Send the request
             yield return webRequest.SendWebRequest();
             
-            // ~~~~~~ This should be in the try catch loop, but is outside so that it prints more detailed errors ~~~~~
-            // Parse the json response
-            var jsonResponse = JsonUtility.FromJson<CreateSessionResponse>(webRequest.downloadHandler.text);
-            Debug.Log("jsonResponse: " + jsonResponse);
-            // Set the session id
-            TelemetryManager.session = jsonResponse.data.session;
-            // ~~~~~~~ End of try block ~~~~~~~
-
+            
             try
             {
-                //Debug.Log("Telemetry successfully initialized");
+                // Parse the json response
+                var jsonResponse = JsonUtility.FromJson<CreateSessionResponse>(webRequest.downloadHandler.text);
+                Debug.Log("jsonResponse: " + jsonResponse.data.session);
+                // Set the session id
+                TelemetryManager.session = jsonResponse.data.session;
+                Debug.Log("Telemetry successfully initialized");
             } catch (Exception e)
             {
                 Debug.LogError("An error occured with telemetry");
