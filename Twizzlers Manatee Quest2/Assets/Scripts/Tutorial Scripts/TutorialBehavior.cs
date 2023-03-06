@@ -61,9 +61,11 @@ public class TutorialBehavior : MonoBehaviour
     [Tooltip("Player Game Object with the PlayerScript component.")]
     [SerializeField] private PlayerScript player;
 
+
+
     private NewVerticalMovement verticalControls;
 
-    private Rigidbody playerRb;
+    private Rigidbody playerRb; // Player's rigidbody to lock y position and prevent a softlock
     private bool verticalMovementEnabled = false;
 
     // Counter to keep track of which part of the tutorial you are on
@@ -108,6 +110,9 @@ public class TutorialBehavior : MonoBehaviour
         tutorialImages[0].SetActive(true);
 
         endTutorialScreen.SetActive(false);
+
+        // Lock the player's y-position (until they get to the part where they learn to move up and down)
+        playerRb.constraints |= RigidbodyConstraints.FreezePositionY;
 
     }
 
@@ -212,6 +217,7 @@ public class TutorialBehavior : MonoBehaviour
                 PlayerScript.currentBreath = 50;
                 verticalControls.enabled = true;
                 verticalMovementEnabled = true;
+                this.playerRb.constraints &= ~RigidbodyConstraints.FreezePositionY;
                 break;
         }
     }
