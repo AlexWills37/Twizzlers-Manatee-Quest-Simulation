@@ -216,7 +216,7 @@ public class ManateeBehavior2 : MonoBehaviour
         isSwimming = true;
 
         // Set velocity forward for a bit of time
-        manateeRb.velocity = this.transform.forward * 1f;
+        manateeRb.velocity = this.transform.forward * movementSpeed;
 
         yield return new WaitForSeconds(Random.Range(1, 5));
 

@@ -75,7 +75,7 @@ public class ManateeBoatSceneBehavior : MonoBehaviour
     private void EnablePlayerMovement()
     {
         playerMovement.EnableHorizontalMovement();
-        playerMovement.EnableVerticalMovement();
+        //playerMovement.EnableVerticalMovement();
         boatStrikeInfo.SetActive(true);
         manateeAI.enabled = true;
     }

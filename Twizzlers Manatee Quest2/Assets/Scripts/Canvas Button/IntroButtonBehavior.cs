@@ -138,7 +138,7 @@ public class IntroButtonBehavior : MonoBehaviour
     {
         // Temporarily disable the button
         buttonContinue.interactable = false;
-        buttonTextObject.SetText("");
+        buttonTextObject.SetText("...");
 
         // Begin reactivation timer and transition to the next slide
         // Ensrue only 1 coroutine occurs at once
