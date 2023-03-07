@@ -71,7 +71,7 @@ public class ManateeNameChooser : MonoBehaviour
         {
             slideButtonControl = this.GetComponent<IntroButtonLinker>();
         }
-        slideButtonControl.LockButton("Name your friends!");
+        slideButtonControl.LockButton("...");
     }
 
     /// <summary>

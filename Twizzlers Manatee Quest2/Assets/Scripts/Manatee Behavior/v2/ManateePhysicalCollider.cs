@@ -18,8 +18,15 @@ public class ManateePhysicalCollider : MonoBehaviour
     [SerializeField] private ManateeBehavior2 manatee;
 
     [Tooltip("Collider trigger indicating the player's personal space to not invade.")]
-    [SerializeField] private Collider playersPersonalSpace;
+    static private Collider playersPersonalSpace;
 
+    void Awake()
+    {
+        if(playersPersonalSpace == null)
+        {
+            playersPersonalSpace = GameObject.Find("Personal Space").GetComponent<Collider>();
+        }
+    }
 
     /// <summary>
     /// When the manatee enters the player's personal space, let the Manatee script know.
