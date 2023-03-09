@@ -8171,7 +8171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1318958642}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 80.721, y: -161.36601, z: -178.56001}
 --- !u!4 &346781589 stripped
 Transform:
@@ -25155,10 +25155,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: ManateeAI (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1705940867621023474, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705940867621023476, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1705940867621023476, guid: 923d6dde1f1c8cc46b674114e7a24c71,
         type: 3}
       propertyPath: breathTime
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705940867621023476, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 2.48
       objectReference: {fileID: 0}
     - target: {fileID: 2672033573784171228, guid: 923d6dde1f1c8cc46b674114e7a24c71,
         type: 3}
@@ -52006,10 +52021,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: ManateeAI (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1705940867621023474, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1705940867621023476, guid: 923d6dde1f1c8cc46b674114e7a24c71,
         type: 3}
       propertyPath: breathTime
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705940867621023476, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2672033573784171228, guid: 923d6dde1f1c8cc46b674114e7a24c71,
         type: 3}
@@ -58494,7 +58519,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1318958642}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &51825416335786789
 Transform:
