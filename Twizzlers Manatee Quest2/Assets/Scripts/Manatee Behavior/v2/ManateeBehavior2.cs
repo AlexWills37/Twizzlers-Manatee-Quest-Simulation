@@ -27,7 +27,7 @@ using UnityEngine;
 public class ManateeBehavior2 : MonoBehaviour
 {
     [Tooltip("How quickly the manatee should move around.")]
-    [SerializeField] protected float movementSpeed = 5f;
+    [SerializeField] protected float movementSpeed = 4f;
 
     [Tooltip("Particle system to emit particles when the manatee is booped by the player.")]
     [SerializeField] private ParticleSystem happyParticles;
@@ -52,7 +52,7 @@ public class ManateeBehavior2 : MonoBehaviour
 
     // This is how the manatee knows if the RotateSlowly coroutine is active
     protected bool isRotating = false;
-    private float rotationSpeed = 5f;
+    private float rotationSpeed = 10f;
 
     protected Rigidbody manateeRb;
 
@@ -64,6 +64,8 @@ public class ManateeBehavior2 : MonoBehaviour
     private float currentTimeWithoutBreath = 0f;
 
     private AudioSource manateeSound;
+
+    private IEnumerator swimmingForward;
 
     // Start is called before the first frame update
     protected void Start()
@@ -117,8 +119,9 @@ public class ManateeBehavior2 : MonoBehaviour
             {
                 animator.SetBool("isSwimming", true);
 
+                swimmingForward = SwimForward();
                
-                StartCoroutine(SwimForward());
+                StartCoroutine(swimmingForward);
             }
 
             // If the manatee is in the player's space and not out of breath, it will stay still
@@ -181,7 +184,8 @@ public class ManateeBehavior2 : MonoBehaviour
         isRotating = true;
 
         // Choose the direction to rotate
-        float totalRotation = Random.Range(-70f, 70f);
+        float totalRotation = Random.Range(-180f, 180f);
+        Debug.Log("ROTATING: " + totalRotation);
         float elapsedRotation = 0f; // This is how much we have rotated so far
         int negativeMultiplier = 1;
         if(totalRotation < 0)
@@ -217,15 +221,23 @@ public class ManateeBehavior2 : MonoBehaviour
 
         // Set velocity forward for a bit of time
         manateeRb.velocity = this.transform.forward * movementSpeed;
+        manateeRb.drag = 0;
 
+        // Swim for a random amount of time
         yield return new WaitForSeconds(Random.Range(1, 5));
 
         // Come to a slow stop by adding drag for a bit of time
-        manateeRb.drag = 0.3f;
-        yield return new WaitForSeconds(Random.Range(1, 5));
+        StartCoroutine(StopSwimming());
+    }
 
-        // Return to the default state
-        manateeRb.drag = 0;
+    private IEnumerator StopSwimming()
+    {
+        // Add drag to slow the manatee down
+        manateeRb.drag = 1;
+        yield return new WaitForSeconds(4);
+
+        // Add random delay to make behavior less choppy
+        yield return new WaitForSeconds(Random.Range(0, 2));
         isSwimming = false;
     }
 
@@ -244,6 +256,7 @@ public class ManateeBehavior2 : MonoBehaviour
         isSwimming = true;
 
         // Record the original Y so that we can float back down to this point
+        manateeRb.velocity = Vector3.zero;
         float originalY = this.transform.position.y;
 
         // Swim upwards
@@ -282,6 +295,7 @@ public class ManateeBehavior2 : MonoBehaviour
     public void SetPlayerFollow(bool isFollowingPlayer)
     {
         this.followingPlayer = isFollowingPlayer;
+        Debug.LogWarning("Manatee is " + (isFollowingPlayer ? "" : "not") + " following player!");
     }
 
     /// <summary>
@@ -292,6 +306,18 @@ public class ManateeBehavior2 : MonoBehaviour
     public void SetInPlayerSpace(bool isInPlayerSpace)
     {
         this.inPlayersSpace = isInPlayerSpace;
+        Debug.LogWarning("Manatee is " + (isInPlayerSpace ? "" : "not") + " in the player's space!");
+
+        // If we enter the player's space, stop the manatee from moving forward
+        if (inPlayersSpace)
+        {
+            if(swimmingForward != null)
+            {
+                // Interrupt swimming forward and skip to the part where the manatee slows down
+                StopCoroutine(swimmingForward);
+                StartCoroutine(StopSwimming());
+            }
+        }
     }
 
     /// <summary>
@@ -302,5 +328,6 @@ public class ManateeBehavior2 : MonoBehaviour
     public void SetAtSurface(bool isAtSurface)
     {
         this.atSurface = isAtSurface;
+        Debug.LogWarning("Manatee is " + (isAtSurface ? "" : "not") + " at the surface!");
     }
 }

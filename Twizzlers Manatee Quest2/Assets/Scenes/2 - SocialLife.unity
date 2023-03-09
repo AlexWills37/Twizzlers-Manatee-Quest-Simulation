@@ -13206,7 +13206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15769004b089a69468d84ec82fd2f890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3.46
+  movementSpeed: 3.64
   happyParticles: {fileID: 1970620130}
   breathTime: 30
   parentManatee: {fileID: 753985683}
@@ -32633,6 +32633,11 @@ PrefabInstance:
       propertyPath: breathTime
       value: 48.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1705940867621023476, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2376217015730972732, guid: 923d6dde1f1c8cc46b674114e7a24c71,
         type: 3}
       propertyPath: m_RootOrder
@@ -38944,6 +38949,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ManateeAI 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705940867621023474, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705940867621023476, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 4.03
       objectReference: {fileID: 0}
     - target: {fileID: 2672033573784171228, guid: 923d6dde1f1c8cc46b674114e7a24c71,
         type: 3}

@@ -18,7 +18,7 @@ public class ManateePhysicalCollider : MonoBehaviour
     [SerializeField] private ManateeBehavior2 manatee;
 
     [Tooltip("Collider trigger indicating the player's personal space to not invade.")]
-    static private Collider playersPersonalSpace;
+    private Collider playersPersonalSpace;
 
     void Awake()
     {
