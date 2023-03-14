@@ -493,4 +493,4 @@ Every frame, TelemetryManager performs a physics raycast from the player's posit
 - The game object is within 100 units of the player
 
 > For a full list of game objects set up for tracking, see
-> [Observable Objects](/obervable_objects.md)
+> [Observable Objects](/observable_objects.md)
