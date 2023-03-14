@@ -16156,8 +16156,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885074968}
-  m_LocalRotation: {x: -0.08417703, y: 0.02521875, z: 0.002382774, w: 0.9961288}
-  m_LocalPosition: {x: -0.4200926, y: 18.636654, z: 61.21664}
+  m_LocalRotation: {x: 0.009313514, y: 0.027241142, z: 0.00000006853953, w: -0.9995855}
+  m_LocalPosition: {x: -0.13839138, y: 19.194881, z: 60.0315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2043708684}
@@ -26455,13 +26455,27 @@ GameObject:
   - component: {fileID: 4377882989004141380}
   - component: {fileID: 4377882989004141378}
   - component: {fileID: 4377882989004141379}
-  m_Layer: 0
-  m_Name: Swim down visual
+  - component: {fileID: 4377882989004141382}
+  m_Layer: 9
+  m_Name: Swim down info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!65 &4377882989004141382
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377882989004141381}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 802.2, y: 281.2, z: 1}
+  m_Center: {x: 659.57, y: -137.58, z: 0}
 --- !u!222 &4377882989556137473
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27596,13 +27610,27 @@ GameObject:
   - component: {fileID: 4377882990130615949}
   - component: {fileID: 4377882990130615947}
   - component: {fileID: 4377882990130615948}
-  m_Layer: 0
-  m_Name: Swim up visual
+  - component: {fileID: 4377882990130615951}
+  m_Layer: 9
+  m_Name: Swim up info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!65 &4377882990130615951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377882990130615950}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 798.3, y: 277.51, z: 1}
+  m_Center: {x: 656.13, y: -137.8, z: 0}
 --- !u!222 &4377882990151813451
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27901,7 +27929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &4377882990344157896
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27910,7 +27938,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4377882990344157895}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 803.72, y: 229.8, z: 1}

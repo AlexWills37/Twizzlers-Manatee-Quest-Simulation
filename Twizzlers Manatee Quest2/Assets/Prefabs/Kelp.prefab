@@ -47,8 +47,8 @@ GameObject:
   - component: {fileID: 6968329398184208465}
   - component: {fileID: 6968329398184208466}
   - component: {fileID: 6968329398184208467}
-  m_Layer: 4
-  m_Name: Cylinder
+  m_Layer: 9
+  m_Name: Seagrass Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,8 +143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grassObj: {fileID: 8754529505953154294}
   bubbleObj: {fileID: 7386586744288463306}
-  chewParticleEffect: {fileID: 0}
-  ateGrassNum: 0
   healthValue: 5
 --- !u!1001 &5844921612317956102
 PrefabInstance:

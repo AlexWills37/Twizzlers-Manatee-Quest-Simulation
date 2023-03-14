@@ -5249,6 +5249,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8f7dcde90d02aa241b6df165cada8b91,
         type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8f7dcde90d02aa241b6df165cada8b91,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -5260,6 +5265,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 425684945}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &425684947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8f7dcde90d02aa241b6df165cada8b91,
+    type: 3}
+  m_PrefabInstance: {fileID: 425684945}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &425684948
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425684947}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.010574946
+  m_Center: {x: -0.000000002823676, y: -0.000000018442254, z: 0.0031899938}
 --- !u!1 &432041094
 GameObject:
   m_ObjectHideFlags: 0
@@ -5307,7 +5331,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 451036312}
-  m_Layer: 0
+  - component: {fileID: 451036313}
+  m_Layer: 9
   m_Name: Coral Reef
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5348,6 +5373,19 @@ Transform:
   m_Father: {fileID: 494122130}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &451036313
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451036311}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.87, y: 4.4, z: 9.7}
+  m_Center: {x: 93.6, y: 8.09, z: 118.44}
 --- !u!1001 &455501971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6206,7 +6244,8 @@ GameObject:
   - component: {fileID: 544567335}
   - component: {fileID: 544567336}
   - component: {fileID: 544567337}
-  m_Layer: 0
+  - component: {fileID: 544567338}
+  m_Layer: 9
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6328,6 +6367,19 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 1856545178}
+--- !u!65 &544567338
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544567334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 355.65, y: 54.27, z: 1}
+  m_Center: {x: -10.11, y: 0, z: 0}
 --- !u!1 &555907081
 GameObject:
   m_ObjectHideFlags: 0
@@ -10376,7 +10428,8 @@ GameObject:
   - component: {fileID: 846434916}
   - component: {fileID: 846434918}
   - component: {fileID: 846434917}
-  m_Layer: 0
+  - component: {fileID: 846434919}
+  m_Layer: 9
   m_Name: Breath Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10498,6 +10551,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!65 &846434919
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846434915}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 344.78, y: 56.15, z: 1}
+  m_Center: {x: -1.7, y: 0, z: 0}
 --- !u!1 &851811164
 GameObject:
   m_ObjectHideFlags: 0
@@ -13823,7 +13889,8 @@ GameObject:
   - component: {fileID: 1050059664}
   - component: {fileID: 1050059663}
   - component: {fileID: 1050059662}
-  m_Layer: 5
+  - component: {fileID: 1050059665}
+  m_Layer: 9
   m_Name: Task List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13927,6 +13994,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!65 &1050059665
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050059660}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 140.7, y: 37.2, z: 1}
+  m_Center: {x: -10.12, y: 22.4, z: 0}
 --- !u!1 &1062580668
 GameObject:
   m_ObjectHideFlags: 0
@@ -16920,7 +17000,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8f7dcde90d02aa241b6df165cada8b91,
         type: 3}
       propertyPath: m_Name
-      value: Artifical Reef 0
+      value: Artificial Reef 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8f7dcde90d02aa241b6df165cada8b91,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8f7dcde90d02aa241b6df165cada8b91,
         type: 3}
@@ -16935,6 +17020,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1333913276}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1333913278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8f7dcde90d02aa241b6df165cada8b91,
+    type: 3}
+  m_PrefabInstance: {fileID: 1333913276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1333913279
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333913278}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.010574949
+  m_Center: {x: -0.000000010244548, y: -0.0000000037317425, z: 0}
 --- !u!1 &1336278496
 GameObject:
   m_ObjectHideFlags: 0
@@ -19880,8 +19984,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503042041}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 37.104996, z: 0}
+  m_LocalRotation: {x: -0.12000476, y: 0.0129832765, z: 0.0019455398, w: 0.9926865}
+  m_LocalPosition: {x: 8.900798, y: 46.386505, z: 63.360252}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -21996,6 +22100,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1705940867621023474, guid: 923d6dde1f1c8cc46b674114e7a24c71,
         type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705940867621023474, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
@@ -22144,6 +22253,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3721659442208153625, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: manatee
+      value: 
+      objectReference: {fileID: 1017232503}
+    - target: {fileID: 3989964890577551746, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: m_Name
+      value: PhysicalManatee Collider (Baby Manatee)
+      objectReference: {fileID: 0}
     - target: {fileID: 5078530792425173451, guid: 923d6dde1f1c8cc46b674114e7a24c71,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -22216,6 +22335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1705940867621023476, guid: 923d6dde1f1c8cc46b674114e7a24c71, type: 3}
+    - {fileID: 2713456792932932692, guid: 923d6dde1f1c8cc46b674114e7a24c71, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 923d6dde1f1c8cc46b674114e7a24c71, type: 3}
 --- !u!4 &1636560175 stripped
 Transform:
@@ -32778,6 +32898,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3989964890577551746, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: m_Name
+      value: PhysicalManatee Collider (Parent Manatee)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989964890577551746, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5241946715464666523, guid: 923d6dde1f1c8cc46b674114e7a24c71,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -38950,6 +39080,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ManateeAI 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1705940867621023473, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705940867621023474, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1705940867621023474, guid: 923d6dde1f1c8cc46b674114e7a24c71,
         type: 3}
       propertyPath: m_IsKinematic
@@ -39014,6 +39154,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989964890577551746, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: m_Name
+      value: PhysicalManatee Collider (Manatee 0)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989964890577551746, guid: 923d6dde1f1c8cc46b674114e7a24c71,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 923d6dde1f1c8cc46b674114e7a24c71, type: 3}
