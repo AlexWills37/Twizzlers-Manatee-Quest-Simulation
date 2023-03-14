@@ -16156,8 +16156,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885074968}
-  m_LocalRotation: {x: -0.05487383, y: 0.49658838, z: 0.031489726, w: 0.86567736}
-  m_LocalPosition: {x: -8.660767, y: 19.625023, z: 56.763523}
+  m_LocalRotation: {x: -0.08417703, y: 0.02521875, z: 0.002382774, w: 0.9961288}
+  m_LocalPosition: {x: -0.4200926, y: 18.636654, z: 61.21664}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2043708684}
@@ -25937,13 +25937,27 @@ GameObject:
   - component: {fileID: 4377882988666306307}
   - component: {fileID: 4377882988666306305}
   - component: {fileID: 4377882988666306306}
-  m_Layer: 0
+  - component: {fileID: 4377882988666306309}
+  m_Layer: 9
   m_Name: Task Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &4377882988666306309
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377882988666306308}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 812.42, y: 58.64, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!222 &4377882988833546204
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27880,13 +27894,27 @@ GameObject:
   - component: {fileID: 4377882990344157894}
   - component: {fileID: 4377882990344157892}
   - component: {fileID: 4377882990344157893}
-  m_Layer: 0
-  m_Name: Eat seagrass visual
+  - component: {fileID: 4377882990344157896}
+  m_Layer: 9
+  m_Name: Eat seagrass info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
+--- !u!65 &4377882990344157896
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377882990344157895}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 803.72, y: 229.8, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4408438678609423578
 GameObject:
   m_ObjectHideFlags: 0
@@ -30591,8 +30619,8 @@ GameObject:
   - component: {fileID: 6968329397197852396}
   - component: {fileID: 6968329397197852399}
   - component: {fileID: 6968329397197852394}
-  m_Layer: 4
-  m_Name: TutorialKelpCylinder
+  m_Layer: 9
+  m_Name: TutorialKelpCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

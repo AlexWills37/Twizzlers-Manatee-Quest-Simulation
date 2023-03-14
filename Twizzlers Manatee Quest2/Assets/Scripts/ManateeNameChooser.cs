@@ -107,4 +107,13 @@ public class ManateeNameChooser : MonoBehaviour
             slideButtonControl.UnlockButton();
         }
     }
+
+    public void ResetNames()
+    {
+        for(int i = 0; i < chosenNames.Length; i++)
+        {
+            chosenNames[i] = "";
+        }
+        currentManatee = 0;
+    }
 }

@@ -1262,7 +1262,8 @@ GameObject:
   - component: {fileID: 57923958}
   - component: {fileID: 57923960}
   - component: {fileID: 57923959}
-  m_Layer: 0
+  - component: {fileID: 57923961}
+  m_Layer: 9
   m_Name: Anatomy Info Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1387,6 +1388,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57923957}
   m_CullTransparentMesh: 0
+--- !u!65 &57923961
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57923957}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2292.29, y: 1527.61, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &65700180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,7 +1614,6 @@ RectTransform:
   m_LocalScale: {x: 0.0036018752, y: 0.003870449, z: 0.0011708505}
   m_Children:
   - {fileID: 1501600705}
-  - {fileID: 1810991397}
   - {fileID: 100115311}
   m_Father: {fileID: 1447209758}
   m_RootOrder: 3
@@ -1706,7 +1719,7 @@ RectTransform:
   - {fileID: 195172746}
   - {fileID: 254107039}
   m_Father: {fileID: 80965539}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2145,8 +2158,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183211431}
-  m_LocalRotation: {x: -0.22004339, y: 0.7113474, z: 0.2534779, w: 0.6175069}
-  m_LocalPosition: {x: 102.48645, y: 64.08101, z: 42.303165}
+  m_LocalRotation: {x: -0.0958921, y: 0.8484366, z: 0.16533074, w: 0.49358472}
+  m_LocalPosition: {x: 102.38653, y: 67.66987, z: 46.866684}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2391,8 +2404,9 @@ GameObject:
   - component: {fileID: 195172749}
   - component: {fileID: 195172748}
   - component: {fileID: 195172747}
-  m_Layer: 0
-  m_Name: Oreoo
+  - component: {fileID: 195172751}
+  m_Layer: 9
+  m_Name: Oreoo Name Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2510,6 +2524,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195172745}
   m_CullTransparentMesh: 0
+--- !u!65 &195172751
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195172745}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 163.39, y: 64.11, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &196213325
 GameObject:
   m_ObjectHideFlags: 0
@@ -3336,8 +3363,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 254107039}
-  m_Layer: 0
-  m_Name: ChosenNames
+  - component: {fileID: 254107040}
+  m_Layer: 9
+  m_Name: ChosenManateeNames
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3364,6 +3392,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!65 &254107040
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254107038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2691, y: 546.82, z: 1}
+  m_Center: {x: 0, y: -626.6, z: 0}
 --- !u!1 &257704002
 GameObject:
   m_ObjectHideFlags: 0
@@ -4806,7 +4847,8 @@ GameObject:
   - component: {fileID: 371359337}
   - component: {fileID: 371359340}
   - component: {fileID: 371359341}
-  m_Layer: 5
+  - component: {fileID: 371359342}
+  m_Layer: 9
   m_Name: Slide Continue Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4944,6 +4986,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e952f8d3bb397640885cc4eb3db048d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &371359342
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371359335}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 99.34, y: 48.9, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &372104443
 GameObject:
   m_ObjectHideFlags: 0
@@ -5163,8 +5218,9 @@ GameObject:
   - component: {fileID: 449286366}
   - component: {fileID: 449286368}
   - component: {fileID: 449286367}
-  m_Layer: 0
-  m_Name: SpeciesTextPanel
+  - component: {fileID: 449286369}
+  m_Layer: 9
+  m_Name: Manatee Species Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5227,6 +5283,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449286365}
   m_CullTransparentMesh: 0
+--- !u!65 &449286369
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449286365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1791.91, y: 954.2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &450315887
 GameObject:
   m_ObjectHideFlags: 0
@@ -5846,8 +5915,9 @@ GameObject:
   - component: {fileID: 475072897}
   - component: {fileID: 475072899}
   - component: {fileID: 475072898}
-  m_Layer: 5
-  m_Name: ControlMessage
+  - component: {fileID: 475072900}
+  m_Layer: 9
+  m_Name: Controller Instructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5968,6 +6038,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475072896}
   m_CullTransparentMesh: 0
+--- !u!65 &475072900
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475072896}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 153.68, y: 63.56, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &483401128
 GameObject:
   m_ObjectHideFlags: 0
@@ -6310,8 +6393,9 @@ GameObject:
   - component: {fileID: 501823328}
   - component: {fileID: 501823330}
   - component: {fileID: 501823329}
-  m_Layer: 5
-  m_Name: TriggerControlImage
+  - component: {fileID: 501823331}
+  m_Layer: 9
+  m_Name: TriggerControlDiagram
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6373,6 +6457,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501823327}
   m_CullTransparentMesh: 0
+--- !u!65 &501823331
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501823327}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 90.85, y: 121.69, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &540159054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7095,8 +7192,9 @@ GameObject:
   - component: {fileID: 578138277}
   - component: {fileID: 578138279}
   - component: {fileID: 578138278}
-  m_Layer: 5
-  m_Name: Image
+  - component: {fileID: 578138280}
+  m_Layer: 9
+  m_Name: Manatee Photo (Anatomy slide)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7158,6 +7256,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578138276}
   m_CullTransparentMesh: 0
+--- !u!65 &578138280
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578138276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3814, y: 3353, z: 1}
+  m_Center: {x: 1904, y: -1670.3, z: 0}
 --- !u!1 &581913477
 GameObject:
   m_ObjectHideFlags: 0
@@ -9902,8 +10013,9 @@ GameObject:
   - component: {fileID: 784176936}
   - component: {fileID: 784176938}
   - component: {fileID: 784176937}
-  m_Layer: 5
-  m_Name: Text (TMP)
+  - component: {fileID: 784176939}
+  m_Layer: 9
+  m_Name: Becoming a Manatee Story
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10028,6 +10140,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784176935}
   m_CullTransparentMesh: 0
+--- !u!65 &784176939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784176935}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 145.49, y: 72.26, z: 1}
+  m_Center: {x: 0, y: 25.31, z: 0}
 --- !u!1001 &795672147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10201,6 +10326,99 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 795672147}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &796964634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 796964635}
+  - component: {fileID: 796964638}
+  - component: {fileID: 796964637}
+  - component: {fileID: 796964636}
+  m_Layer: 9
+  m_Name: Water Surface (collider)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &796964635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796964634}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.313799, y: -1.85, z: -4.4226484}
+  m_LocalScale: {x: 98.47568, y: 1, z: 87.330376}
+  m_Children: []
+  m_Father: {fileID: 820861423}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &796964636
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796964634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &796964637
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796964634}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &796964638
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796964634}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &797651940
 GameObject:
   m_ObjectHideFlags: 0
@@ -10444,8 +10662,9 @@ GameObject:
   - component: {fileID: 802200747}
   - component: {fileID: 802200746}
   - component: {fileID: 802200745}
-  m_Layer: 5
-  m_Name: Become a Manatee Button (1)
+  - component: {fileID: 802200749}
+  m_Layer: 9
+  m_Name: Become a Manatee Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10574,6 +10793,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802200743}
   m_CullTransparentMesh: 0
+--- !u!65 &802200749
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802200743}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 84.04, y: 37.63, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &809427914
 GameObject:
   m_ObjectHideFlags: 0
@@ -10648,8 +10880,9 @@ GameObject:
   - component: {fileID: 847868578}
   - component: {fileID: 847868577}
   - component: {fileID: 847868576}
-  m_Layer: 0
-  m_Name: Twicks
+  - component: {fileID: 847868580}
+  m_Layer: 9
+  m_Name: Twicks Name Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10767,6 +11000,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847868574}
   m_CullTransparentMesh: 0
+--- !u!65 &847868580
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847868574}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 161.46, y: 65.08, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &867873091
 GameObject:
   m_ObjectHideFlags: 0
@@ -12568,7 +12814,8 @@ GameObject:
   - component: {fileID: 1019009514}
   - component: {fileID: 1019009516}
   - component: {fileID: 1019009515}
-  m_Layer: 5
+  - component: {fileID: 1019009517}
+  m_Layer: 9
   m_Name: WelcomeMessgae
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12690,6 +12937,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019009513}
   m_CullTransparentMesh: 0
+--- !u!65 &1019009517
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019009513}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 258.34, y: 54.83, z: 1}
+  m_Center: {x: 0, y: -7.19, z: 0}
 --- !u!1 &1035018387
 GameObject:
   m_ObjectHideFlags: 0
@@ -16447,13 +16707,27 @@ GameObject:
   - component: {fileID: 1217321837}
   - component: {fileID: 1217321836}
   - component: {fileID: 1217321835}
-  m_Layer: 0
-  m_Name: MainBoatPlane
+  - component: {fileID: 1217321834}
+  m_Layer: 9
+  m_Name: Boat Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &1217321834
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217321833}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.999999, y: 2.2204463e-16, z: 9.999998}
+  m_Center: {x: 0, y: 0.0000076293945, z: -0.0000019073486}
 --- !u!23 &1217321835
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16805,8 +17079,9 @@ GameObject:
   - component: {fileID: 1236241960}
   - component: {fileID: 1236241959}
   - component: {fileID: 1236241958}
-  m_Layer: 0
-  m_Name: Skittlez
+  - component: {fileID: 1236241962}
+  m_Layer: 9
+  m_Name: Skittlez Name Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16924,6 +17199,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236241956}
   m_CullTransparentMesh: 0
+--- !u!65 &1236241962
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236241956}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 160.3, y: 62.29, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1236693031
 GameObject:
   m_ObjectHideFlags: 0
@@ -17323,7 +17611,8 @@ GameObject:
   - component: {fileID: 1266510709}
   - component: {fileID: 1266510711}
   - component: {fileID: 1266510710}
-  m_Layer: 0
+  - component: {fileID: 1266510712}
+  m_Layer: 9
   m_Name: ManateeFamilyPhoto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17386,6 +17675,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266510708}
   m_CullTransparentMesh: 0
+--- !u!65 &1266510712
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266510708}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2291.9, y: 2294.25, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1268378799
 GameObject:
   m_ObjectHideFlags: 0
@@ -19031,8 +19333,9 @@ GameObject:
   - component: {fileID: 1398490834}
   - component: {fileID: 1398490836}
   - component: {fileID: 1398490835}
-  m_Layer: 0
-  m_Name: SocialTextPanel
+  - component: {fileID: 1398490837}
+  m_Layer: 9
+  m_Name: Manatee Social Info Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19095,6 +19398,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398490833}
   m_CullTransparentMesh: 0
+--- !u!65 &1398490837
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398490833}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1491.1, y: 832.93, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1403692104
 GameObject:
   m_ObjectHideFlags: 0
@@ -20221,7 +20537,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1810991397}
   m_Father: {fileID: 80965539}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22737,6 +23054,99 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 926770548}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1724553998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1724554002}
+  - component: {fileID: 1724554001}
+  - component: {fileID: 1724554000}
+  - component: {fileID: 1724553999}
+  m_Layer: 9
+  m_Name: Information Canvas Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1724553999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724553998}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1724554000
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724553998}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1724554001
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724553998}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1724554002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724553998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 121.7, y: 96.24, z: 42.23}
+  m_LocalScale: {x: 1, y: 10.777612, z: 18.901402}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1750420971
 GameObject:
   m_ObjectHideFlags: 0
@@ -23478,8 +23888,9 @@ GameObject:
   - component: {fileID: 1810991397}
   - component: {fileID: 1810991399}
   - component: {fileID: 1810991398}
-  m_Layer: 0
-  m_Name: Title
+  - component: {fileID: 1810991400}
+  m_Layer: 9
+  m_Name: Choose Manatee Names Instructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23492,12 +23903,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810991396}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0032580488}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 80965539}
-  m_RootOrder: 1
+  m_Father: {fileID: 1501600705}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -23601,6 +24012,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810991396}
   m_CullTransparentMesh: 0
+--- !u!65 &1810991400
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810991396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4577.8, y: 817, z: 1}
+  m_Center: {x: 0, y: 177.5, z: 0}
 --- !u!1001 &1815364741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28170,7 +28594,8 @@ GameObject:
   - component: {fileID: 1936857064}
   - component: {fileID: 1936857063}
   - component: {fileID: 1936857062}
-  m_Layer: 0
+  - component: {fileID: 1936857065}
+  m_Layer: 9
   m_Name: ManateeSoundCanvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28262,6 +28687,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!65 &1936857065
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936857060}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2000.89, y: 745.53, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1940243568
 GameObject:
   m_ObjectHideFlags: 0

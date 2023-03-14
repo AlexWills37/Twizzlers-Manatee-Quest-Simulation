@@ -248,10 +248,10 @@ public class ManateeBehavior2 : MonoBehaviour
     private IEnumerator SurfaceAndBreathe()
     {
 
-        // Add a telemetry entry for breathing
-        TelemetryManager.entries.Add(
-            new TelemetryEntry("manateeBreathing")
-        );
+        //// Add a telemetry entry for breathing
+        //TelemetryManager.entries.Add(
+        //    new TelemetryEntry("manateeBreathing")
+        //);
 
         isSwimming = true;
 
