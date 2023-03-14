@@ -59,3 +59,49 @@ tracked by the telemetry manager, it must have the `RecordPlayerLookingAt` layer
 ## 1 - UnderwaterTutorial
 - Tutorial Kelp Collider
   - The seagrass the player eats in the tutorial
+- Task Panel
+  - The small panel instructing the player on what to do next
+  - Follows the player's rotation
+- Eat Seagrass Info
+  - Tutorial information telling the player how to move around and eat seagrass
+  - Follows player rotation
+- Swim Up Info
+- Swim Down Info
+  - Tutorial information telling the player how to swim up and down
+  - Follows player rotation
+
+## 2 - SocialLife
+- Seagrass Collider
+  - Seagrass that the player can eat to gain points
+- ManateeAI
+  - One of the manatees that the player can see swimming and interact with
+- Health Bar
+- Breath Bar
+- Task List
+  - Parts of the GUI that the player should see
+  - Follows player rotation
+- Artificial Reef
+  - The spherical artificial reefs in the environment
+- Coral Reef
+  - The natrual reefs in the environment
+
+## 4 - BoatScene
+(there are no tracked objects in Scene 3 - Transition)
+- LookUpHint / BoatNoiseInfo
+  - GUI Element at start of scene that introduces players to boats and tells the player to look at the manatee in front of them
+  - Follows player rotation
+- Cutscene Manatee (Boat Hit)
+  - The manatee in front of the player that will get hit by a boat :(
+- Boat that hits manatee
+  - The boat that quickly speeds by and hits the cutscene manatee 
+- ManateeAI (doesn't get hit)
+  - The manatee friends that are in the distance to the left of the player, that will not get hit by a boat :)
+- Water Surface
+  - The surface of the water
+- BoatStrikeInfo
+  - The GUI information telling the player about the frequency of boat strikes
+  - Follows player rotation
+
+## 5 - End Scene
+- Thank You + Stats
+  - The final information canvas!
