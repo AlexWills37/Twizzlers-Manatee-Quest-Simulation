@@ -409,7 +409,8 @@ you must attach the PlayerTelemetryLinker.cs script to the player object in each
 
 Upon creation, the Telemetry Manager attempts to open a connection with the backend server, specified in the `url` field.
 
-Every frame, the Telemetry Manager uses the player's location and rotation to determine what the player is looking at. More detail on the `lookingAt` entry is given below.
+Every frame, the Telemetry Manager uses the player's location and rotation to determine what the player is looking at. [More detail on the `lookingAt` entry is given below.](#lookingat-object-name-time-looked-at-seconds)
+
 
 Every 60 frames, the Telemetry Manager will poll the player's location and rotation and add it as a data entry.
 
@@ -480,7 +481,16 @@ Every 60 frames, the player's current rotation (x, y, z) is logged in the Poll()
 
 Every 60 frames, the plaeyr's ccurrent position is logged in the Poll() method.
 
-## lookingAt \[object name] \[time looked at (seconds)]
+### lookingAt \[object name] \[time looked at (seconds)]
 - TelemetryManager.cs, All Scenes
 
-This entry deserves its own section!
+Every frame, TelemetryManager performs a physics raycast from the player's position and rotation to determine what the player is looking at. The data entry will include the name of the game object the player is looking at, along with the amount of time they spent looking at the object (null = 0 full seconds). Time is recorded in seconds, rounded down. The entry will not be sent until the player looks at a new game object.
+
+**This script uses layers to filter out the game objects it will record! In order for the TelemetryManager to log the player as looking at a game object, the following conditions must be met**
+- The game object has the layer `RecordPlayerLookingAt` applied
+- The game object has a collider (physical or trigger; both work)
+- The player is looking at the game object
+- The game object is within 100 units of the player
+
+> For a full list of game objects set up for tracking, see
+> [Observable Objects](/obervable_objects.md)
