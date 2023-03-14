@@ -397,3 +397,90 @@ In this scene, there is a canvas, and two buttons. One to Quit, and one to Resta
 This is the end of the Scene Documentation. Currently the telemetry scripts are not included in this documentation.
 
 [Return to scene list](#scene-documentation)
+
+# Telemetry
+For research purposes, this simulation tracks data about the user's behavior and stores it in a backend server. This section will overview the data that is being collected and where in the scripts this is happening, so that any modifications may be made.
+## TelemetryManager.cs
+This is where the bulk of telemetry occurs. 
+
+A static TelemetryManager is created and set to persist between scenes.
+**NOTE: Because the TelemetryManager persists between scenes, but the Player is reset in each scene, 
+you must attach the PlayerTelemetryLinker.cs script to the player object in each scene.**
+
+Upon creation, the Telemetry Manager attempts to open a connection with the backend server, specified in the `url` field.
+
+Every frame, the Telemetry Manager uses the player's location and rotation to determine what the player is looking at. More detail on the `lookingAt` entry is given below.
+
+Every 60 frames, the Telemetry Manager will poll the player's location and rotation and add it as a data entry.
+
+Every 600 frames, the Telemetry Manager will send the information it has collected so far to the database.
+
+To add your own data entry to the backend, call the function
+```
+TelemetryManager.entries.Add(
+  new TelemetryEntry( <string entryName> <other parameters>)
+ );
+ ```
+For the kinds of other parameters you can send to the database, look at `TelemetryEntry.cs` in `Assets > Scripts > Telemetry > api`.
+The timestamp of the event will be sent to the database by default.
+
+### PlayerTelemetryLinker.cs
+A helper script that finds the game object called "TelemetryManager" in the scene and sets the player transform within the TelemetryManager to the transform of this object. To record the player's rotation and position in VR, this is attached to the LeftEyeAnchor object in the OVR rig.
+
+## Recorded Information
+### breathAlarmStart, breathAlarmEnd
+- BreathAlarm.cs, Scene 2
+
+
+Two events to mark the start and end of the feedback that activates when the player's breath gets too low.
+
+### sceneChange \[name of scene] \[time spent in scene (seconds)]
+- ChangeScene.cs, Scene 0-4
+
+Stores whenever a scene changes, the name of the scene that the player is going into, and the amount of time (in seconds) that the player spent in the scene before the scene change occured.
+
+### grassEaten \[location]
+- GrassTrigger.cs, Scene 2
+
+Records when the player eats seagrass, along with a Vector3 containing the position of the seagrass that was eaten.
+
+### manateeInteraction
+- ManateeBehavior2.cs, Scene 2, 4
+
+Activates whenever the player pets a manatee, therefore interacting with them.
+
+### nameSelected \[name]
+- ManateeNameChooser.cs, Scene 0
+
+In the first scene, when the player chooses the names for their manatee friends, this event records a selection.
+NOTE: The player may choose more than 2 names (the name selector cycles between naming the 2 manatees), so you may receive more than 2 instances of this entry. The latest 2 names selected will be the manatee names in the simlulation.
+
+### playerHealth \[health]
+- PlayerScript.cs, Scene 1, 2, (3) (health is not relevant in scene 3)
+
+At 10 second intervals, this script will log an entry with the player's health (as an integer).
+
+### playerBreath \[breath]
+- PlayerScript.cs, Scene 1, 2, (3) (health is not relevant in scene 3)
+
+At 10 second intervals, this script will log an entry with the player's breath (as an integer).
+
+### restart
+- RestartSimulationButton.cs, Scene 5
+
+At the end of the simulation, there is the option to restart. Restarting is recorded to separate multiple playthroughs of the simulation.
+
+### playerHeadRotation \[Vector3 angles]
+- TelemetryManager.cs, All Scenes
+
+Every 60 frames, the player's current rotation (x, y, z) is logged in the Poll() method.
+
+### playerPosition \[Vector3 position]
+- TelemetryManager.cs, All Scenes
+
+Every 60 frames, the plaeyr's ccurrent position is logged in the Poll() method.
+
+## lookingAt \[object name] \[time looked at (seconds)]
+- TelemetryManager.cs, All Scenes
+
+This entry deserves its own section!
