@@ -10,6 +10,11 @@ public class TelemetryManager : MonoBehaviour {
     private int frameCount = 0;
     private bool isInternetConnected = false;
     private int lookingAtCount = 0;
+    private float lookingAtTime = 0f;
+    private LayerMask objectsToIgnore;   // Layer mask for telling the raycast what to ignore
+
+
+
     private string lookingAtTarget = "";
     public static string lastScene = "";
     public static string session = "";
@@ -27,7 +32,8 @@ public class TelemetryManager : MonoBehaviour {
             instance = this;
             StartCoroutine(Initialize());
             DontDestroyOnLoad(gameObject);
-        }   
+        }
+        this.objectsToIgnore = ~LayerMask.NameToLayer("RecordPlayerLookingAt"); // Ignore every layer except for the one our objects to track are in
     }
 
     private IEnumerator Initialize() {
@@ -71,15 +77,17 @@ public class TelemetryManager : MonoBehaviour {
             {
                 RaycastHit hit;
                 Ray ray = new Ray(playerTransform.position, playerTransform.forward);
-                if (Physics.Raycast(ray, out hit, 100)) {
+                if (Physics.Raycast(ray, out hit, 100, objectsToIgnore)) {
                     if (hit.transform.gameObject.name == lookingAtTarget) {
-                        lookingAtCount++;
+                        lookingAtTime += Time.deltaTime;
                     } else {
                         TelemetryManager.entries.Add(
-                            new TelemetryEntry("lookingAt", hit.transform.gameObject.name, (int) (lookingAtCount / (double) 60))
+                            new TelemetryEntry("lookingAt", hit.transform.gameObject.name, ((int)lookingAtTime) )
                         );
                         lookingAtTarget = hit.transform.gameObject.name;
-                        lookingAtCount = 1;
+                        lookingAtTime = 0f;
+
+                        Debug.Log("Looking at: " + hit.transform.gameObject.name);
                     }
                 }
             }

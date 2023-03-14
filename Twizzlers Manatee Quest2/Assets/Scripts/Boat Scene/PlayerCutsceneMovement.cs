@@ -17,6 +17,7 @@ public class PlayerCutsceneMovement : MonoBehaviour
 
     private Behaviour playerHorizontalMovement;
     private Behaviour playerVerticalMovement;
+    private Rigidbody playerRb;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +25,13 @@ public class PlayerCutsceneMovement : MonoBehaviour
         // At the start, disable the scripts
         playerHorizontalMovement = this.GetComponent<NewPlayerController>();
         playerVerticalMovement = this.GetComponent<NewVerticalMovement>();
+        playerRb = this.GetComponent<Rigidbody>();
 
         playerHorizontalMovement.enabled = false;
         playerVerticalMovement.enabled = false;
+
+        // Disable player vertical movement for the entire scene
+        playerRb.constraints |= RigidbodyConstraints.FreezePositionY;
 
         // Ensure the player is facing the manatee
         cameraRig.transform.rotation = Quaternion.Euler(0, 0, 0);

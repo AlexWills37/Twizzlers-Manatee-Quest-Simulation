@@ -16,6 +16,7 @@ using UnityEngine.UI;
 public class RestartSimulationButton : MonoBehaviour
 {
     private Button button;
+    private ManateeNameChooser manateeNames;
 
 
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class RestartSimulationButton : MonoBehaviour
     {
         button = this.GetComponent<Button>();
         button.onClick.AddListener(ResetGame);
+        manateeNames = ManateeNameChooser.singleInstance;
     }
 
     /// <summary>
@@ -30,9 +32,17 @@ public class RestartSimulationButton : MonoBehaviour
     /// </summary>
     private void ResetGame()
     {
+        int timeInScene = (int)Time.timeSinceLevelLoad;
         TelemetryManager.entries.Add(
-            new TelemetryEntry("restart", "", (int) (Time.timeSinceLevelLoad / (double) 60))
+            new TelemetryEntry("restart", "",timeInScene)
         );
         SceneManager.LoadScene(0);
+
+        //if(manateeNames != null)
+        //{
+        //    manateeNames.ResetNames();
+        //}
     }
+
+
 }

@@ -522,7 +522,7 @@ GameObject:
   - component: {fileID: 1705940867621023476}
   - component: {fileID: 1705940867621023474}
   - component: {fileID: 4615896056858870132}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ManateeAI
   m_TagString: Manatee
   m_Icon: {fileID: 0}
@@ -1421,8 +1421,8 @@ GameObject:
   - component: {fileID: 3303666163206853943}
   - component: {fileID: 3721659442208153625}
   - component: {fileID: 697953202405427474}
-  m_Layer: 0
-  m_Name: PhysicalManatee
+  m_Layer: 9
+  m_Name: PhysicalManatee Collider
   m_TagString: Manatee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

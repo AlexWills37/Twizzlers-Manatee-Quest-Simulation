@@ -70,6 +70,16 @@ public class ManateeNameplateBehavior : MonoBehaviour
         // If you draw a line from the nametag to the player, 
         // this rotation is the angle of that line, starting at the nametag.
         // 0 degrees = positive Z, 90 degrees = positive X
+        /* Illustration of the angle we are calculating
+         * Z (0 degrees)
+         * ^ 
+         * |
+         * | (player)
+         * |     \
+         * |      \ 
+         * | -----(manatee)
+         * +================> X (90 degrees)
+         */
         float yRotation = 0;
 
         // If the player is directly behind or in front of the nametag,
