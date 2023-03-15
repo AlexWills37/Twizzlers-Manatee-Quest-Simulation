@@ -428,6 +428,8 @@ The timestamp of the event will be sent to the database by default.
 ### PlayerTelemetryLinker.cs
 A helper script that finds the game object called "TelemetryManager" in the scene and sets the player transform within the TelemetryManager to the transform of this object. To record the player's rotation and position in VR, this is attached to the LeftEyeAnchor object in the OVR rig.
 
+---
+
 ## Recorded Information
 ### breathAlarmStart, breathAlarmEnd
 - BreathAlarm.cs, Scene 2
@@ -481,10 +483,10 @@ Every 60 frames, the player's current rotation (x, y, z) is logged in the Poll()
 
 Every 60 frames, the plaeyr's ccurrent position is logged in the Poll() method.
 
-### lookingAt \[object name] \[time looked at (seconds)]
+### lookingAt \[object name] \[time looked at (milliseconds)]
 - TelemetryManager.cs, All Scenes
 
-Every frame, TelemetryManager performs a physics raycast from the player's position and rotation to determine what the player is looking at. The data entry will include the name of the game object the player is looking at, along with the amount of time they spent looking at the object (null = 0 full seconds). Time is recorded in seconds, rounded down. The entry will not be sent until the player looks at a new game object.
+Every frame, TelemetryManager performs a physics raycast from the player's position and rotation to determine what the player is looking at. The data entry will include the name of the game object the player is looking at, along with the amount of time they spent looking at the object (null = 0 milliseconds). Time is recorded in milliseconds, rounded down. The entry will not be sent until the player looks at a new game object.
 
 **This script uses layers to filter out the game objects it will record! In order for the TelemetryManager to log the player as looking at a game object, the following conditions must be met**
 - The game object has the layer `RecordPlayerLookingAt` applied

@@ -82,8 +82,8 @@ public class TelemetryManager : MonoBehaviour {
                         lookingAtTime += Time.deltaTime;
                     } else {
                         TelemetryManager.entries.Add(
-                            new TelemetryEntry("lookingAt", hit.transform.gameObject.name, ((int)lookingAtTime) )
-                        );
+                            new TelemetryEntry("lookingAt", hit.transform.gameObject.name, ((int)(lookingAtTime * 1000)) )
+                        );  // Record the time the player was looking at the game object, in milliseconds
                         lookingAtTarget = hit.transform.gameObject.name;
                         lookingAtTime = 0f;
 
