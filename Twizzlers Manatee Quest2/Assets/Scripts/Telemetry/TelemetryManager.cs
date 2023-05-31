@@ -19,7 +19,7 @@ public class TelemetryManager : MonoBehaviour {
     public static string lastScene = "";
     public static string session = "";
     public static List<TelemetryEntry> entries = new List<TelemetryEntry>();
-    public static string url = "http://18.222.189.147/";
+    public static string url = "http://74.50.86.76/";
 
     public Transform playerTransform;
 
