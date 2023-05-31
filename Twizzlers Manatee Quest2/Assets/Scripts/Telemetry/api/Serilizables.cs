@@ -24,20 +24,17 @@ public class Vec3 : BaseSerializable {
 }
 
 [System.Serializable]
-public class ApiResponse
-{
+public class ResponseBase {
     public string status;
     public int time;
-    public CreateSessionResponse data;
+}
+
+[System.Serializable]
+public class CreateSessionResponse : ResponseBase {
+    public ApiData data;
 }
 
 [System.Serializable]
 public class ApiData {
-
-}
-
-[System.Serializable]
-public class CreateSessionResponse : ApiResponse
-{
     public string session;
 }
